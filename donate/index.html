@@ -1,25 +1,120 @@
-<section style="padding:60px; text-align:center; background:#fff; color:#111; font-family:Arial, sans-serif;">
-  <div style="max-width:700px; margin:auto;">
-    <h1 style="font-size:28px; color:#16a34a; margin-bottom:20px;">
-      Thank You for Your Interest in Donating
-    </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You for Donating - One Africa Association</title>
+  <style>
+    /* Reset margin and padding for all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+    }
+
+    section.fullscreen-thankyou {
+      min-height: 100vh;
+      width: 100vw;
+      padding: 40px 20px;
+      background: #fff;
+      
+      /* Flexbox centering */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      text-align: center;
+    }
+
+    section.fullscreen-thankyou > div {
+      max-width: 600px;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    section.fullscreen-thankyou h1 {
+      font-size: 2.5rem;
+      color: #16a34a; /* Tailwind green-600 */
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    section.fullscreen-thankyou p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    section.fullscreen-thankyou a.contact-btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, opacity 0.2s ease;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.4);
+      user-select: none;
+    }
+
+    section.fullscreen-thankyou a.contact-btn:hover,
+    section.fullscreen-thankyou a.contact-btn:focus {
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      opacity: 0.9;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Responsive text scaling for small devices */
+    @media (max-width: 480px) {
+      section.fullscreen-thankyou h1 {
+        font-size: 2rem;
+      }
+      section.fullscreen-thankyou p {
+        font-size: 1rem;
+      }
+      section.fullscreen-thankyou a.contact-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="fullscreen-thankyou">
+  <div>
+    <h1>Thank You for Your Interest in Donating</h1>
     
-    <p style="font-size:16px; color:#444; margin-bottom:15px; line-height:1.6;">
+    <p>
       At <strong>One Africa Association</strong>, we deeply appreciate your generosity and willingness to support our mission.  
-      Your efforts and commitment mean a lot, and every contribution  no matter the amount  goes a long way in empowering communities and building a better Africa.
+      Your efforts and commitment mean a lot, and every contribution — no matter the amount — goes a long way in empowering communities and building a better Africa.
     </p>
     
-    <p style="font-size:16px; color:#444; margin-bottom:30px; line-height:1.6;">
+    <p>
       To move forward with your donation and receive guidance on how to channel your support, please contact us through the link below.  
       Our team will provide you with all the necessary information.
     </p>
 
     <!-- Contact Button -->
-    <a href="/contact-us/" 
-       style="display:inline-block; padding:14px 28px; background:linear-gradient(90deg,#16a34a,#16a34a); color:#fff; border-radius:30px; text-decoration:none; font-weight:bold; font-size:16px; transition:opacity 0.2s;">
+    <a href="/contact-us/" class="contact-btn" role="button">
       Contact Us for Next Steps
     </a>
   </div>
 </section>
+
+</body>
+</html>
 
 
