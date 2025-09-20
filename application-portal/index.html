@@ -1,37 +1,151 @@
-<section style="padding:40px; text-align:center; background:#fff; color:#111;">
-  <h2 style="margin-bottom:20px; font-size:26px; color:#16a34a;">Application Form</h2>
-  <p style="margin-bottom:25px; font-size:16px; color:#555;">Fill in your details to apply and be part of the movement.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application Form - One Africa Association</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <form id="applicationForm" action="https://formspree.io/f/mzzanvqy" method="POST" 
-        style="max-width:480px; margin:auto; display:flex; flex-direction:column; gap:16px;">
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
+    section.application-form {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      padding: 40px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    section.application-form h2 {
+      font-size: 1.75rem;
+      color: #16a34a; /* green-600 */
+      margin-bottom: 15px;
+    }
+
+    section.application-form p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    form#applicationForm {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    form#applicationForm input[type="text"],
+    form#applicationForm textarea {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #ddd;
+      font-size: 1rem;
+      outline-offset: 2px;
+      transition: border-color 0.25s ease;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    form#applicationForm input[type="text"]:focus,
+    form#applicationForm textarea:focus {
+      border-color: #16a34a;
+      outline: none;
+      box-shadow: 0 0 6px #a5d6a7;
+    }
+
+    form#applicationForm textarea {
+      min-height: 120px;
+    }
+
+    form#applicationForm button[type="submit"] {
+      padding: 14px 0;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #16a34a, #15803d);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, opacity 0.2s ease;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.5);
+      user-select: none;
+    }
+
+    form#applicationForm button[type="submit"]:hover,
+    form#applicationForm button[type="submit"]:focus {
+      background: linear-gradient(90deg, #15803d, #16a34a);
+      opacity: 0.9;
+      outline: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 400px) {
+      section.application-form {
+        padding: 30px 20px;
+      }
+      section.application-form h2 {
+        font-size: 1.5rem;
+      }
+      section.application-form p {
+        font-size: 0.9rem;
+      }
+      form#applicationForm input[type="text"],
+      form#applicationForm textarea {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+      }
+      form#applicationForm button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="application-form">
+  <h2>Application Form</h2>
+  <p>Fill in your details to apply and be part of the movement.</p>
+
+  <form id="applicationForm" action="https://formspree.io/f/mzzanvqy" method="POST">
     <!-- Full Name -->
-    <input type="text" name="fullname" placeholder="Full Name" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+    <input type="text" name="fullname" placeholder="Full Name" required />
 
     <!-- Country of Residence -->
-    <input type="text" name="country" placeholder="Country of Residence" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+    <input type="text" name="country" placeholder="Country of Residence" required />
 
     <!-- Mobile Number / Email -->
-    <input type="text" name="contact" placeholder="Mobile Number or Email" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+    <input type="text" name="contact" placeholder="Mobile Number or Email" required />
 
     <!-- Role Description -->
-    <textarea name="roleDescription" placeholder="Describe the role you best suit and can do perfectly" rows="5" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px; resize:vertical;"></textarea>
+    <textarea name="roleDescription" placeholder="Describe the role you best suit and can do perfectly" required></textarea>
 
     <!-- Submit -->
-    <button type="submit" 
-      style="padding:14px; border:none; border-radius:30px; background:linear-gradient(90deg,#16a34a,#15803d); color:#fff; font-weight:bold; font-size:16px; cursor:pointer; transition:opacity 0.2s;">
-      Submit Application
-    </button>
+    <button type="submit">Submit Application</button>
   </form>
 </section>
 
 <script>
   document.getElementById("applicationForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // stop default form redirect
+    event.preventDefault();
 
     const form = event.target;
     const formData = new FormData(form);
@@ -44,7 +158,7 @@
       });
 
       if (response.ok) {
-        // ✅ Redirect after successful submission
+        // Redirect after successful submission
         window.location.href = "YOUR_REDIRECT_URL_HERE";
       } else {
         alert("There was an error. Please try again.");
@@ -54,3 +168,6 @@
     }
   });
 </script>
+
+</body>
+</html>
