@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>One Africa Alliance</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -52,17 +52,12 @@
       object-fit: contain;
     }
 
-    /* Homepage styles */
-    #homepage, #subpage {
-      min-height: 100vh;
+    /* Homepage styles (hidden initially) */
+    #homepage {
+      display: none;
       background: #111;
       color: #fff;
-      display: none;
-      flex-direction: column;
-    }
-
-    #homepage.active, #subpage.active {
-      display: flex;
+      min-height: 100vh;
     }
 
     header {
@@ -72,7 +67,6 @@
       padding: 10px 15px;
       border-bottom: 1px solid #333;
       background: #000;
-      z-index: 10;
     }
 
     .hamburger {
@@ -102,7 +96,6 @@
       transition: left 0.3s ease;
       z-index: 3;
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-      overflow-y: auto;
     }
 
     .sidebar.active {
@@ -117,7 +110,6 @@
       color: #ddd;
       font-size: 16px;
       transition: background 0.2s;
-      cursor: pointer;
     }
 
     .sidebar a:hover {
@@ -145,8 +137,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      flex-grow: 1;
-      overflow-y: auto;
     }
 
     .blog {
@@ -214,29 +204,6 @@
       width: 20px;
       height: 20px;
     }
-
-    /* Subpage content */
-    #subpage-content {
-      flex-grow: 1;
-      padding: 20px;
-      overflow-y: auto;
-      background: #222;
-      border-radius: 12px;
-      margin: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    }
-
-    #back-button {
-      margin: 10px 20px;
-      padding: 10px 20px;
-      background-color: #e53935;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      align-self: flex-start;
-    }
   </style>
 </head>
 <body>
@@ -248,14 +215,14 @@
   </div>
 </div>
 
-<!-- Homepage with sidebar -->
-<div id="homepage" class="active">
+<!-- Homepage (hidden initially) -->
+<div id="homepage">
   <nav class="sidebar" id="sidebar">
-    <a data-page="about-us" href="/about-us/"><i class="fas fa-info-circle"></i> About Us</a>
-    <a data-page="contact-us" href="/contact-us/"><i class="fas fa-envelope"></i> Contact Us</a>
-    <a data-page="where-we-work" href="/where-we-work/"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
-    <a data-page="join-us" href="/join-us/"><i class="fas fa-users"></i> Join Us</a>
-    <a data-page="application-portal" href="/application-portal/"><i class="fas fa-briefcase"></i> Job Application</a>
+    <a href="/about-us/"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="/contact-us/"><i class="fas fa-envelope"></i> Contact Us</a>
+    <a href="/where-we-work/"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
+    <a href="/join-us/"><i class="fas fa-users"></i> Join Us</a>
+    <a href="/application-portal/"><i class="fas fa-briefcase"></i> Job Application</a>
   </nav>
 
   <header>
@@ -271,23 +238,14 @@
   <main id="blogs"></main>
 </div>
 
-<!-- Subpage container -->
-<div id="subpage">
-  <button id="back-button">← Back</button>
-  <div id="subpage-content"></div>
-</div>
-
 <script>
-  // Splash screen logic
+  // 1. Splash screen logic
   setTimeout(() => {
     document.getElementById('splash').style.display = 'none';
-    document.getElementById('homepage').classList.add('active');
-
-    // Set initial history state for homepage
-    history.replaceState({ page: "homepage" }, "Homepage", window.location.pathname);
+    document.getElementById('homepage').style.display = 'block';
   }, 3000);
 
-  // Sidebar toggle
+  // 2. Sidebar logic
   const sidebar = document.getElementById("sidebar");
 
   function toggleSidebar() {
@@ -302,11 +260,11 @@
     }
   });
 
-  // External links for buttons
+  // 3. Blog rendering logic
+  const navLink = "nav.html";
   const donateLink = "/donate/";
   const applyLink = "/join-us/";
 
-  // Blogs data
   const blogs = [
     {
       id: "1",
@@ -384,81 +342,21 @@
 
   function sharePost(title, link) {
     if (navigator.share) {
-      navigator.share({ title, url: link }).catch(console.error);
+      navigator.share({ title, url: link }).catch(err => console.log("Share failed:", err));
     } else {
-      alert("Share API not supported on this browser.");
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied to clipboard!");
+      });
     }
   }
+
+  setInterval(() => {
+    blogs.forEach(blog => {
+      document.getElementById("time-" + blog.id).innerText = formatTime(blog.createdAt);
+    });
+  }, 60000);
 
   renderBlogs();
-
-  // Sidebar link clicks for SPA navigation
-  sidebar.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const page = e.currentTarget.getAttribute("data-page");
-      loadSubpage(page);
-      sidebar.classList.remove("active");
-    });
-  });
-
-  // Subpage content simulation
-  const subpages = {
-    "about-us": `<h1>About Us</h1><p>Welcome to One Africa Alliance! We strive to connect Africans worldwide.</p>`,
-    "contact-us": `<h1>Contact Us</h1><p>Email: contact@oneafricaalliance.org<br>Phone: +1234567890</p>`,
-    "where-we-work": `<h1>Where We Work</h1><p>Our projects span across multiple African countries.</p>`,
-    "join-us": `<h1>Join Us</h1><p>Become part of our mission by joining our team.</p>`,
-    "application-portal": `<h1>Job Application</h1><p>Apply for current openings in our organization.</p>`
-  };
-
-  const homepageDiv = document.getElementById("homepage");
-  const subpageDiv = document.getElementById("subpage");
-  const subpageContentDiv = document.getElementById("subpage-content");
-  const backButton = document.getElementById("back-button");
-
-  function loadSubpage(page) {
-    if (!subpages[page]) return;
-
-    // Hide homepage, show subpage
-    homepageDiv.classList.remove("active");
-    subpageDiv.classList.add("active");
-
-    // Update content
-    subpageContentDiv.innerHTML = subpages[page];
-
-    // Push state
-    history.pushState({ page: page }, page.replace(/-/g, ' '), `#${page}`);
-  }
-
-  // Back button event
-  backButton.addEventListener("click", () => {
-    history.back();
-  });
-
-  // Handle browser back/forward buttons
-  window.addEventListener("popstate", event => {
-    if (!event.state || event.state.page === "homepage") {
-      // Show homepage
-      subpageDiv.classList.remove("active");
-      homepageDiv.classList.add("active");
-    } else if (event.state.page) {
-      // Show subpage
-      loadSubpage(event.state.page);
-    }
-  });
-
-  // On initial load, if hash exists, load that subpage
-  window.addEventListener("load", () => {
-    const hash = window.location.hash.slice(1);
-    if (hash && subpages[hash]) {
-      // Immediately hide splash & homepage and show subpage
-      document.getElementById('splash').style.display = 'none';
-      homepageDiv.classList.remove("active");
-      subpageDiv.classList.add("active");
-      subpageContentDiv.innerHTML = subpages[hash];
-      history.replaceState({ page: hash }, hash.replace(/-/g, ' '), `#${hash}`);
-    }
-  });
 </script>
 
 </body>
