@@ -1,0 +1,56 @@
+<section style="padding:40px; text-align:center; background:#fff; color:#111;">
+  <h2 style="margin-bottom:20px; font-size:26px; color:#16a34a;">Application Form</h2>
+  <p style="margin-bottom:25px; font-size:16px; color:#555;">Fill in your details to apply and be part of the movement.</p>
+
+  <form id="applicationForm" action="https://formspree.io/f/mzzanvqy" method="POST" 
+        style="max-width:480px; margin:auto; display:flex; flex-direction:column; gap:16px;">
+
+    <!-- Full Name -->
+    <input type="text" name="fullname" placeholder="Full Name" required
+      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+
+    <!-- Country of Residence -->
+    <input type="text" name="country" placeholder="Country of Residence" required
+      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+
+    <!-- Mobile Number / Email -->
+    <input type="text" name="contact" placeholder="Mobile Number or Email" required
+      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px;">
+
+    <!-- Role Description -->
+    <textarea name="roleDescription" placeholder="Describe the role you best suit and can do perfectly" rows="5" required
+      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px; resize:vertical;"></textarea>
+
+    <!-- Submit -->
+    <button type="submit" 
+      style="padding:14px; border:none; border-radius:30px; background:linear-gradient(90deg,#16a34a,#15803d); color:#fff; font-weight:bold; font-size:16px; cursor:pointer; transition:opacity 0.2s;">
+      Submit Application
+    </button>
+  </form>
+</section>
+
+<script>
+  document.getElementById("applicationForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // stop default form redirect
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+      let response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // ✅ Redirect after successful submission
+        window.location.href = "YOUR_REDIRECT_URL_HERE";
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>

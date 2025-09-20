@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - One Africa Alliance</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; line-height: 1.7; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                  url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Africa_satellite_orthographic.jpg') no-repeat center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 750px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    /* General Section Styling */
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #0d3b2e;
+      border-left: 6px solid #f4a261;
+      padding-left: 12px;
+    }
+    section p {
+      font-size: 1.05em;
+      margin-bottom: 20px;
+    }
+
+    /* Core Values */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .value-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .value-card:hover { transform: translateY(-6px); }
+    .value-card h3 {
+      color: #e76f51;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+
+    /* Leadership */
+    .leaders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .leader-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .leader-card:hover { transform: translateY(-5px); }
+    .leader-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .leader-card h3 {
+      color: #0d3b2e;
+      margin-bottom: 6px;
+    }
+    .leader-card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* Partners */
+    .partners ul {
+      list-style: none;
+      padding: 0;
+    }
+    .partners li {
+      background: #fff;
+      margin: 12px 0;
+      padding: 15px 20px;
+      border-left: 6px solid #2a9d8f;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 1.05em;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #0d3b2e;
+      color: #fff;
+      padding: 30px;
+      margin-top: 50px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>About Us</h1>
+    <p>One Africa Alliance was founded to unite, empower, and uplift Africa — one family, one voice, one future.</p>
+  </div>
+
+  <!-- Story -->
+  <section>
+    <h2>Our Story</h2>
+    <p>
+      The <strong>One Africa Alliance (OAA)</strong> was born from the belief that Africa’s strength lies in its unity. 
+      Our continent faces poverty, conflict, and inequality — but also shines with resilience, creativity, and hope.  
+    </p>
+    <p>
+      We are more than an organization; we are a movement — bringing together governments, communities, businesses, and the diaspora 
+      to empower Africa, amplify African voices, and drive sustainable development.
+    </p>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section>
+    <h2>Vision & Mission</h2>
+    <p><strong>Vision:</strong> Support and help bring a united Africa where every person lives in peace, dignity, and prosperity.</p>
+    <p><strong>Mission:</strong> To promote peace, deliver aid, empower trade, build opportunities for youth and women, 
+      and ensure environmental sustainability for all Africans.</p>
+  </section>
+
+  <!-- Core Values -->
+  <section>
+    <h2>Core Values</h2>
+    <div class="values">
+      <div class="value-card">
+        <h3>🌍 Solidarity</h3>
+        <p>We rise together as Africans, united by our shared destiny.</p>
+      </div>
+      <div class="value-card">
+        <h3>🤝 Integrity</h3>
+        <p>We serve with honesty, accountability, and transparency.</p>
+      </div>
+      <div class="value-card">
+        <h3>💡 Innovation</h3>
+        <p>We harness African creativity and technology for solutions.</p>
+      </div>
+      <div class="value-card">
+        <h3>🚀 Empowerment</h3>
+        <p>We lift people and communities to build their own future.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners">
+    <h2>Our Partners</h2>
+    <ul>
+      <li><strong>African governments</strong> committed to peace and progress.</li>
+      <li><strong>NGOs & humanitarian groups</strong> saving lives and building resilience.</li>
+      <li><strong>Entrepreneurs & businesses</strong> driving African trade and innovation.</li>
+      <li><strong>African diaspora</strong> working hand-in-hand with the continent.</li>
+    </ul>
+  </section>
+
+  <!-- Why We Exist -->
+  <section>
+    <h2>Why We Exist</h2>
+    <p>
+      Because Africa deserves <strong>peace, prosperity, and power — together.</strong>  
+      Because no African should be left behind.  
+      Because the dream of a united Africa is not for tomorrow — it is for <strong>today.</strong>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 One Africa Alliance | Building Unity, Peace & Prosperity</p>
+  </footer>
+
+</body>
+</html>

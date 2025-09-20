@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Work — One Africa Alliance</title>
+  <meta name="description" content="One Africa Alliance — Programs: Humanitarian Aid, Peace, Trade, Education, Health and Climate action across Africa." />
+  <style>
+    /* ========== Theme variables ========== */
+    :root{
+      --accent: #0d3b2e;    /* deep green */
+      --warm:   #f4a261;    /* gold / warm */
+      --highlight: #e76f51; /* coral */
+      --muted:  #f6f5f3;
+      --card:   #ffffff;
+      --text:   #222;
+      --radius: 12px;
+      --glass: rgba(255,255,255,0.92);
+    }
+
+    /* ========== Reset ========== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:linear-gradient(180deg,#fbfbfb,#f9f8f7);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* ========== Page layout ========== */
+    header.site-hero{
+      background:
+        linear-gradient(180deg, rgba(13,59,46,0.52), rgba(13,59,46,0.22)),
+        url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Africa_satellite_orthographic.jpg') center/cover no-repeat;
+      color: white;
+      padding: clamp(36px, 6vw, 88px) 20px;
+      text-align:center;
+    }
+    header .hero-inner{
+      max-width:1100px;
+      margin:0 auto;
+    }
+    header h1{
+      font-size: clamp(28px, 4.6vw, 44px);
+      letter-spacing: -0.02em;
+      margin-bottom:12px;
+      line-height:1.05;
+    }
+    header p{
+      font-size: clamp(15px, 1.8vw, 18px);
+      opacity:0.95;
+      max-width:820px;
+      margin: 0 auto;
+    }
+    header .cta {
+      margin-top:18px;
+      display:inline-block;
+      background:var(--warm);
+      color:white;
+      padding:10px 18px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 10px 24px rgba(231,111,81,0.14);
+    }
+    header .cta:hover{ transform:translateY(-3px); }
+
+    /* main content wrapper */
+    main{ max-width:1200px; margin: 28px auto; padding: 0 18px 60px; }
+
+    /* intro text */
+    .intro{
+      text-align:center;
+      margin-bottom:26px;
+    }
+    .intro h2{
+      color:var(--accent);
+      font-size:22px;
+      margin-bottom:8px;
+    }
+    .intro p{ color:#555; max-width:900px; margin: 0 auto; font-size:1rem; }
+
+    /* program cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+    @media (max-width: 1000px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 12px 30px rgba(15,20,18,0.06);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition: transform .22s ease, box-shadow .22s ease;
+      border:1px solid rgba(10,10,10,0.03);
+      min-height:220px;
+    }
+    .card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(13,59,46,0.12);
+    }
+
+    /* image banner inside card */
+    .card .media{
+      width:100%; height:140px; overflow:hidden; flex-shrink:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.02));
+    }
+    .card .media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* card content */
+    .card .content{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1 1 auto;
+    }
+    .card .meta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .icon-wrap{
+      width:46px; height:46px; display:inline-grid; place-items:center;
+      border-radius:10px; background: linear-gradient(180deg, rgba(244,162,97,0.14), rgba(231,111,81,0.06));
+      flex-shrink:0;
+      box-shadow: inset 0 -6px 16px rgba(244,162,97,0.02);
+    }
+    /* decorated H3 titles */
+    .card h3{
+      font-size:1.15rem;
+      margin-left:4px;
+      font-weight:800;
+      background: linear-gradient(90deg, var(--accent), var(--warm), var(--highlight));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      letter-spacing:-0.01em;
+      margin-bottom:4px;
+    }
+    .tagline{
+      font-size:0.92rem; color:#444; margin-top:-6px;
+    }
+    .card p{ color:#444; font-size:0.95rem; margin-top:4px; }
+    .bullets{ margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; }
+    .chip{ background:var(--muted); padding:6px 10px; border-radius:999px; font-weight:700; color:var(--accent); font-size:0.85rem; }
+
+    /* action */
+    .card .actions{
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .learn{
+      background: var(--accent);
+      color:white; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:700;
+      display:inline-block;
+    }
+    .learn:hover{ opacity:0.95; transform:translateY(-2px); }
+
+    /* small footer and resource area */
+    .resources{
+      margin-top:28px; display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+    }
+    .download{
+      background:var(--warm); color:#fff; padding:10px 14px; border-radius:10px; font-weight:800; text-decoration:none;
+      box-shadow: 0 10px 20px rgba(244,162,97,0.12);
+    }
+
+    /* accessibility focus */
+    a:focus, button:focus { outline: 3px solid rgba(244,162,97,0.18); outline-offset:3px; border-radius:6px; }
+
+    /* decorative divider */
+    .divider{
+      height:1px; width:100%; background:linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent); margin:24px 0;
+    }
+
+    /* small credits */
+    footer{ text-align:center; color:#666; padding:26px 10px; font-size:0.95rem }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="site-hero" role="banner" aria-label="Our Work hero">
+    <div class="hero-inner">
+      <h1>Our Work — Programs that strengthen Africa</h1>
+      <p>Organized like the best development practice, tailored to African needs — humanitarian response, peacebuilding, trade growth, youth empowerment, health systems, and climate resilience.</p>
+      <a class="cta" href="get-involved.html">Get Involved</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="intro" role="region" aria-labelledby="intro-title">
+      <h2 id="intro-title">Program Areas</h2>
+      <p>Our programs are designed to be practical, scalable, and locally-led — blending humanitarian aid with long-term development, promoting peace and economic opportunity across Africa.</p>
+    </div>
+
+    <!-- programs grid -->
+    <section class="grid" aria-label="Programs list">
+
+      <!-- HUMANITARIAN AID & RELIEF -->
+      <article class="card" aria-labelledby="h3-humanitarian">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/0/0b/Aid_distribution_in_Africa.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Aid_distribution_in_Africa.jpg" alt="Aid distribution scene">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- simple hands icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12c0 5 4 9 9 9s9-4 9-9" stroke="#e76f51" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2v6" stroke="#0d3b2e" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-humanitarian">Humanitarian Aid & Relief</h3>
+              <div class="tagline">Rapid response, food, shelter, health & cash assistance</div>
+            </div>
+          </div>
+
+          <p>We provide immediate relief during crises — food distribution, emergency medical support, temporary shelter and cash assistance — while linking responses to long-term recovery.</p>
+
+          <div class="bullets" role="list">
+            <div class="chip">Emergency Food & WASH</div>
+            <div class="chip">Shelter & NFI</div>
+            <div class="chip">Cash & Voucher</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Scale-ready | Local partnerships</small>
+        
+          </div>
+        </div>
+      </article>
+
+      <!-- PEACE & HARMONY -->
+      <article class="card" aria-labelledby="h3-peace">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/4/49/Peace_building_Africa.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Peace_building_Africa.jpg" alt="Community peace meeting">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- dove icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M2 12s6-4 12-2c0 0-2 5 0 8 0 0-6-2-12-6z" stroke="#e76f51" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4c-1 0-3 1-4 2" stroke="#0d3b2e" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-peace">Peace & Harmony</h3>
+              <div class="tagline">Mediation, reconciliation, and social cohesion</div>
+            </div>
+          </div>
+
+          <p>We support conflict prevention and resolution: peace dialogues, mediation, social cohesion programs, and community-based reconciliation that build durable harmony.</p>
+
+          <div class="bullets">
+            <div class="chip">Dialogue & Mediation</div>
+            <div class="chip">Community Reconciliation</div>
+            <div class="chip">Conflict-Sensitive Programming</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Context-driven | Inclusive</small>
+            
+          </div>
+        </div>
+      </article>
+
+      <!-- TRADE & ECONOMIC GROWTH -->
+      <article class="card" aria-labelledby="h3-trade">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/0/0e/African_business_market.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/African_business_market.jpg" alt="SME market activity">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- graph/trade icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 17h18" stroke="#e76f51" stroke-width="1.4" stroke-linecap="round"/><path d="M7 13l4-4 4 4 4-6" stroke="#0d3b2e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-trade">Trade & Economic Growth</h3>
+              <div class="tagline">SME support, market access, digital & cross-border trade</div>
+            </div>
+          </div>
+
+          <p>We promote intra-African trade, support SMEs with digital tools and market access, and develop value chain interventions that increase incomes and jobs.</p>
+
+          <div class="bullets">
+            <div class="chip">SME Acceleration</div>
+            <div class="chip">Market Linkages</div>
+            <div class="chip">Digital Payments</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Market-led | Job creation</small>
+           
+          </div>
+        </div>
+      </article>
+
+      <!-- EDUCATION & YOUTH EMPOWERMENT -->
+      <article class="card" aria-labelledby="h3-education">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/6/6d/African_youth_training.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/African_youth_training.jpg" alt="Youth training session">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- mortarboard icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="#e76f51" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 10v4c0 1 4 3 9 3s9-2 9-3v-4" stroke="#0d3b2e" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-education">Education & Youth Empowerment</h3>
+              <div class="tagline">Scholarships, skills training and entrepreneurship</div>
+            </div>
+          </div>
+
+          <p>We enable youth and women through scholarships, vocational skills, digital literacy, mentorship and entrepreneurship programs that create career pathways.</p>
+
+          <div class="bullets">
+            <div class="chip">Vocational Training</div>
+            <div class="chip">Digital Skills</div>
+            <div class="chip">Scholarships</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Youth-first | Inclusive</small>
+           
+          </div>
+        </div>
+      </article>
+
+      <!-- HEALTH & WELLNESS -->
+      <article class="card" aria-labelledby="h3-health">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/2/2d/African_health_clinic.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/African_health_clinic.jpg" alt="Clinic health worker">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- stethoscope icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17 3v6c0 1-1 2-2 2s-2-1-2-2V6" stroke="#e76f51" stroke-width="1.4" stroke-linecap="round"/><path d="M5 11v3a6 6 0 0 0 12 0v-3" stroke="#0d3b2e" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-health">Health & Wellness</h3>
+              <div class="tagline">Clinics, maternal care, disease prevention & health systems</div>
+            </div>
+          </div>
+
+          <p>We strengthen health systems, support maternal & child health, run vaccination drives, and train community health workers to improve outcomes across regions.</p>
+
+          <div class="bullets">
+            <div class="chip">Mobile Clinics</div>
+            <div class="chip">Maternal & Child Health</div>
+            <div class="chip">Health Workforce</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Evidence-based | Sustainable</small>
+           
+          </div>
+        </div>
+      </article>
+
+      <!-- ENVIRONMENT & CLIMATE ACTION -->
+      <article class="card" aria-labelledby="h3-environment">
+        <div class="media">
+          <picture>
+            <source type="image/webp" srcset="https://upload.wikimedia.org/wikipedia/commons/9/98/African_farmers_planting_trees.webp">
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/98/African_farmers_planting_trees.jpg" alt="Sustainable farming project">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="meta">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- leaf / solar icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3c4 4 4 9 1 12s-8 3-12-1" stroke="#e76f51" stroke-width="1.4"/><path d="M17 2l3 3" stroke="#0d3b2e" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 id="h3-environment">Environment & Climate Action</h3>
+              <div class="tagline">Sustainable farming, renewables, and climate resilience</div>
+            </div>
+          </div>
+
+          <p>We invest in climate-smart agriculture, support renewable energy access, and implement adaptation strategies to protect livelihoods and ecosystems.</p>
+
+          <div class="bullets">
+            <div class="chip">Climate-smart Agriculture</div>
+            <div class="chip">Renewable Energy</div>
+            <div class="chip">Ecosystem Restoration</div>
+          </div>
+
+          <div class="actions">
+            <small class="muted">Resilience | Green growth</small>
+        
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- divider -->
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <!-- resources & CTA -->
+    <div class="resources" role="region" aria-label="Program resources">
+      
+      <a class="download" href="get-involved.html">Partner With Us</a>
+      <a class="download" href="contact.html">Contact Program Team</a>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 One Africa Alliance — Uniting Africa for Peace, Development & Prosperity
+  </footer>
+
+  <!-- Optionally a small script to enable keyboard 'Enter' activation on card (accessibility) -->
+  <script>
+    // Make each .card's Learn more link focusable by Enter when card is focused
+    document.querySelectorAll('.card').forEach(card => {
+      card.tabIndex = 0;
+      card.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          const link = card.querySelector('.learn');
+          if(link) link.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

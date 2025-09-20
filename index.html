@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One Africa Alliance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: whitesmoke;
+    }
+
+    /* Splash screen */
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo-container {
+      width: 180px;
+      height: 180px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Homepage styles (hidden initially) */
+    #homepage {
+      display: none;
+      background: #111;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #333;
+      background: #000;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background-color: #1a1a1a;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 3;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #ddd;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+    }
+
+    .sidebar i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .btn-action {
+      background: #e53935;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .blog {
+      background: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .blog:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .blog-content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog h2 {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .blog p {
+      font-size: 14px;
+      color: #ccc;
+      cursor: pointer;
+      flex-grow: 1;
+    }
+
+    .blog-footer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 10px;
+      color: #aaa;
+      gap: 15px;
+    }
+
+    .btn-icon {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Splash screen -->
+<div id="splash">
+  <div class="logo-container">
+    <img src="" alt="Logo" />
+  </div>
+</div>
+
+<!-- Homepage (hidden initially) -->
+<div id="homepage">
+  <nav class="sidebar" id="sidebar">
+    <a href="/about-us/"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="/contact-us/"><i class="fas fa-envelope"></i> Contact Us</a>
+    <a href="/where-we-work/"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
+    <a href="/join-us/"><i class="fas fa-users"></i> Join Us</a>
+    <a href="/application-portal/"><i class="fas fa-briefcase"></i> Job Application</a>
+  </nav>
+
+  <header>
+    <button class="hamburger" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="btn-action" onclick="window.open(applyLink, '_blank')">JOIN US</button>
+    <button class="btn-action" onclick="window.open(donateLink, '_blank')">DONATE</button>
+  </header>
+
+  <main id="blogs"></main>
+</div>
+
+<script>
+  // 1. Splash screen logic
+  setTimeout(() => {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('homepage').style.display = 'block';
+  }, 3000);
+
+  // 2. Sidebar logic
+  const sidebar = document.getElementById("sidebar");
+
+  function toggleSidebar() {
+    sidebar.classList.toggle("active");
+  }
+
+  document.addEventListener("click", function(event) {
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isHamburger = event.target.closest('.hamburger');
+    if (!isClickInsideSidebar && !isHamburger && sidebar.classList.contains("active")) {
+      sidebar.classList.remove("active");
+    }
+  });
+
+  // 3. Blog rendering logic
+  const navLink = "nav.html";
+  const donateLink = "/donate/";
+  const applyLink = "/join-us/";
+
+  const blogs = [
+    {
+      id: "1",
+      title: "International Education Grants 2025: Driving Academic Growth and Inclusion",
+      description: "Details about grant opportunities, eligibility, and how these grants support academic inclusion across Africa.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt:"2025-09-19T18:30:00",
+      link: "https://www.games.com"
+    },
+    {
+      id: "2",
+      title: "The Commonwealth Scholarship Commission (CSC) Scholarships 2026 and 2027",
+      description: "Scholarships designed to help candidates from small island developing states pursue master’s degrees in the UK.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(),
+      link: "https://example.com/article-2"
+    },
+    {
+      id: "3",
+      title: "Youth Innovation Grants in Africa 2025",
+      description: "Funding opportunities for African youth-led startups driving community change.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt: new Date(Date.now() - 40 * 24 * 60 * 60 * 1000).toISOString(),
+      link: "https://example.com/article-3"
+    }
+  ];
+
+  function formatTime(dateISO) {
+    const now = new Date();
+    const posted = new Date(dateISO);
+    const diff = now - posted;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+    const options = { hour: '2-digit', minute: '2-digit' };
+
+    if (days === 0) {
+      if (hours > 0) return `${hours}h ago`;
+      if (minutes > 0) return `${minutes}m ago`;
+      return "just now";
+    } else if (days === 1) {
+      return `Yesterday at ${posted.toLocaleTimeString([], options)}`;
+    } else if (days < 7) {
+      return `${posted.toLocaleDateString([], { weekday: 'long' })} at ${posted.toLocaleTimeString([], options)}`;
+    } else {
+      return posted.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' }) +
+             " at " + posted.toLocaleTimeString([], options);
+    }
+  }
+
+  function renderBlogs() {
+    const container = document.getElementById("blogs");
+    container.innerHTML = "";
+    blogs.forEach(blog => {
+      const article = document.createElement("div");
+      article.className = "blog";
+      article.innerHTML = `
+        <img src="${blog.image}" alt="${blog.title}" onclick="window.open('${blog.link}', '_blank')">
+        <div class="blog-content">
+          <h2>${blog.title}</h2>
+          <p onclick="window.open('${blog.link}', '_blank')">${blog.description}</p>
+          <div class="blog-footer">
+            <span id="time-${blog.id}">${formatTime(blog.createdAt)}</span>
+            <button class="btn-icon" onclick="sharePost('${blog.title}', '${blog.link}')">
+              <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/>
+              </svg> Share
+            </button>
+          </div>
+        </div>
+      `;
+      container.appendChild(article);
+    });
+  }
+
+  function sharePost(title, link) {
+    if (navigator.share) {
+      navigator.share({ title, url: link }).catch(err => console.log("Share failed:", err));
+    } else {
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
+  }
+
+  setInterval(() => {
+    blogs.forEach(blog => {
+      document.getElementById("time-" + blog.id).innerText = formatTime(blog.createdAt);
+    });
+  }, 60000);
+
+  renderBlogs();
+</script>
+
+</body>
+</html>

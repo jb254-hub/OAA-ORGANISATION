@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Support - One Africa Alliance</title>
+  <!-- Font Awesome for real icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; line-height: 1.7; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://upload.wikimedia.org/wikipedia/commons/b/bb/Handshake_Africa.jpg') no-repeat center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 90px 20px;
+    }
+    .hero h1 { font-size: 3em; margin-bottom: 12px; }
+    .hero p { font-size: 1.2em; max-width: 750px; margin: auto; opacity: 0.95; }
+
+    /* Sections */
+    section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+    section h2 {
+      font-size: 2em;
+      color: #0d3b2e;
+      margin-bottom: 20px;
+      border-left: 6px solid #f4a261;
+      padding-left: 12px;
+    }
+
+    /* Email Contact */
+    .email-contact {
+      background: #fff;
+      padding: 25px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .email-contact a {
+      display: inline-block;
+      font-size: 1.2em;
+      color: #2a9d8f;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: color 0.3s;
+    }
+    .email-contact a:hover { color: #e76f51; }
+
+    /* Offices */
+    .offices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .office {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+    .office h3 { color: #e76f51; margin-bottom: 10px; }
+
+    /* Social Links */
+    .socials {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .socials a {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 1.6em;
+      color: #2a9d8f;
+      transition: color 0.3s;
+    }
+    .socials a:hover { color: #e76f51; }
+
+    /* FAQ */
+    .faq {
+      margin-top: 25px;
+    }
+    .faq-item {
+      background: #fff;
+      margin-bottom: 12px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .faq-item h3 {
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #0d3b2e;
+    }
+    .faq-item p {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #555;
+    }
+    .faq-item.active p { display: block; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #0d3b2e;
+      color: #fff;
+      padding: 25px;
+      margin-top: 50px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Contact & Support</h1>
+    <p>Have questions or want to connect? Reach out to us and be part of the One Africa Alliance.</p>
+  </div>
+
+  <!-- Email Contact -->
+  <section>
+    <h2>Get in Touch</h2>
+    <div class="email-contact">
+      <p>We’d love to hear from you. Send us an email directly:</p>
+      <a href="mailto:jackbrian727@gmail.com"><i class="fas fa-envelope"></i> jackbrian727@gmail.com</a>
+    </div>
+  </section>
+
+
+  <!-- Social Media -->
+  <section>
+    <h2>Connect With Us</h2>
+    <div class="socials">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>How can I donate?</h3>
+        <p>You can make a secure donation online via our Donate page. We also accept bank transfers and crowdfunding contributions.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I volunteer if I live outside Africa?</h3>
+        <p>Yes! We welcome diaspora volunteers through online mentorship, fundraising, and skill-sharing programs.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you work with governments?</h3>
+        <p>We look forward to partner with African governments, NGOs, and businesses to amplify impact and scale solutions.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How can my company partner with you?</h3>
+        <p>Visit our "Partner With Us" page to explore corporate partnerships, sponsorships, and trade alliances.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 One Africa Alliance | Contact & Support</p>
+  </footer>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    const faqItems = document.querySelectorAll(".faq-item h3");
+    faqItems.forEach(item => {
+      item.addEventListener("click", () => {
+        item.parentElement.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
