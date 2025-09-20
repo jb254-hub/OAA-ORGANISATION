@@ -1,20 +1,133 @@
-<section style="padding:40px; text-align:center; background:#fff; color:#111;">
-  <h2 style="margin-bottom:20px; font-size:24px; color:#15803d;">Join Us</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us - One Africa Association</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <form id="joinForm" action="https://formspree.io/f/mzzanvqy" method="POST" 
-        style="max-width:420px; margin:auto; display:flex; flex-direction:column; gap:16px;">
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    section.join-us {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      padding: 40px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    section.join-us h2 {
+      font-size: 2rem;
+      color: #15803d; /* green-700 */
+      margin-bottom: 30px;
+    }
+
+    form#joinForm {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    form#joinForm input[type="text"],
+    form#joinForm select {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #ddd;
+      font-size: 1rem;
+      outline-offset: 2px;
+      transition: border-color 0.25s ease;
+    }
+
+    form#joinForm input[type="text"]:focus,
+    form#joinForm select:focus {
+      border-color: #16a34a; /* green-600 */
+      outline: none;
+      box-shadow: 0 0 6px #a5d6a7;
+    }
+
+    form#joinForm select {
+      cursor: pointer;
+      appearance: none;
+      background: white url('data:image/svg+xml;utf8,<svg fill="%2315803d" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
+      background-size: 16px 16px;
+      padding-right: 44px;
+    }
+
+    form#joinForm button[type="submit"] {
+      padding: 14px 0;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #16a34a, #15803d);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, opacity 0.2s ease;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.5);
+      user-select: none;
+    }
+
+    form#joinForm button[type="submit"]:hover,
+    form#joinForm button[type="submit"]:focus {
+      background: linear-gradient(90deg, #15803d, #16a34a);
+      opacity: 0.9;
+      outline: none;
+    }
+
+    /* Responsive text and spacing */
+    @media (max-width: 400px) {
+      section.join-us {
+        padding: 30px 20px;
+      }
+      section.join-us h2 {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+      }
+      form#joinForm input[type="text"],
+      form#joinForm select {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+      }
+      form#joinForm button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="join-us">
+  <h2>Join Us</h2>
+
+  <form id="joinForm" action="https://formspree.io/f/mzzanvqy" method="POST">
     
     <!-- Full Name -->
-    <input type="text" name="fullname" placeholder="Full Name" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px; transition:border-color 0.2s;">
+    <input type="text" name="fullname" placeholder="Full Name" required />
     
     <!-- Email or Phone -->
-    <input type="text" name="contact" placeholder="Email or Phone Number" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px; transition:border-color 0.2s;">
+    <input type="text" name="contact" placeholder="Email or Phone Number" required />
     
     <!-- Role Selection -->
-    <select name="role" required
-      style="padding:12px; border-radius:10px; border:1px solid #ddd; outline:none; font-size:15px; cursor:pointer; transition:border-color 0.2s;">
+    <select name="role" required>
       <option value="" disabled selected>Joining as?</option>
       <option value="Beneficiary">Beneficiary</option>
       <option value="Member">Member</option>
@@ -26,10 +139,7 @@
     </select>
 
     <!-- Submit -->
-    <button type="submit" 
-      style="padding:14px; border:none; border-radius:30px; background:linear-gradient(90deg,#16a34a,#15803d); color:#fff; font-weight:bold; font-size:16px; cursor:pointer; transition:opacity 0.2s;">
-      Submit
-    </button>
+    <button type="submit">Submit</button>
   </form>
 </section>
 
@@ -49,12 +159,15 @@
 
       if (response.ok) {
         // ✅ Redirect after successful submission
-        window.location.href = "YOUR_REDIRECT_URL_HERE";
+        window.location.href = "https://oneafricaalliance.org/";
       } else {
         alert("There was an error. Please try again.");
       }
-    } catch (error) {
+    } catch (error) { 
       alert("Something went wrong. Please try again.");
     }
   });
 </script>
+
+</body>
+</html>
