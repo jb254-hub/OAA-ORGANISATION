@@ -117,13 +117,43 @@
     /* Footer */
     footer {
       text-align: center;
-      background: #0d3b2e;
-      color: #fff;
+      background: white;
+      color: black;
       padding: 30px;
       margin-top: 50px;
       font-size: 0.95em;
     }
   </style>
+
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
 </head>
 <body>
 
@@ -154,19 +184,19 @@
       and ensure environmental sustainability for all Africans.</p>
   </section>
 
+  <!-- Privacy -->
   <section>
-  <h2>Data Privacy Commitment</h2>
-  <p>
-    At <strong>One Africa Alliance (OAA)</strong>, your privacy is our priority. We are fully committed to protecting your personal information.
-  </p>
-  <p>
-    We do <strong>not sell, share, or disclose</strong> your data to third parties under any circumstances. Any information you choose to share with us is used solely for the purpose of communication, engagement, or service delivery related to our mission.
-  </p>
-  <p>
-    By interacting with our platform, you can trust that your data is handled with the highest standards of transparency, integrity, and security.
-  </p>
-</section>
-
+    <h2>Data Privacy Commitment</h2>
+    <p>
+      At <strong>One Africa Alliance (OAA)</strong>, your privacy is our priority. We are fully committed to protecting your personal information.
+    </p>
+    <p>
+      We do <strong>not sell, share, or disclose</strong> your data to third parties under any circumstances. Any information you choose to share with us is used solely for the purpose of communication, engagement, or service delivery related to our mission.
+    </p>
+    <p>
+      By interacting with our platform, you can trust that your data is handled with the highest standards of transparency, integrity, and security.
+    </p>
+  </section>
 
   <!-- Core Values -->
   <section>
@@ -216,22 +246,23 @@
   <footer>
     <p>© 2025 One Africa Alliance | Building Unity, Peace & Prosperity</p>
   </footer>
+
+  <!-- Site Protection -->
   <script>
     document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    // F12 or Ctrl+Shift+I or Ctrl+U
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && e.key === "I") ||
-      (e.ctrlKey && e.key === "U")
-    ) {
       e.preventDefault();
-      alert("Action disabled");
-    }
-  });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+        alert("Action disabled");
+      }
+    });
   </script>
 
 </body>
