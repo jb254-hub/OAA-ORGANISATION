@@ -15,8 +15,8 @@
     header {
       text-align: center;
       padding: 60px 20px 30px;
-      background: linear-gradient(135deg, #0d3b2e, #178b6b);
-      color: #fff;
+      background: linear-gradient(135deg, white, white);
+      color: black;
     }
     header h1 {
       margin: 0;
@@ -25,7 +25,7 @@
     header p {
       margin-top: 10px;
       font-size: 1.1rem;
-      color: #eaeaea;
+      color: black;
     }
 
     .map-section {
@@ -56,13 +56,42 @@
     }
 
     footer {
-      background: #0d3b2e;
-      color: #fff;
+      background: white;
+      color: black;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
     }
   </style>
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
 </head>
 <body>
   <header>
