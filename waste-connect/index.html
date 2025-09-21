@@ -89,7 +89,7 @@
       padding:12px 18px;
       font-weight:700;
       border-radius:12px;
-      background:linear-gradient(180deg,var(--accent), #45b645);
+      background:linear-gradient(180deg,var(--accent), orangered);
       color:white;
       box-shadow: 0 8px 20px rgba(44,122,44,0.2);
       transition: transform .14s ease, box-shadow .14s ease;
@@ -108,6 +108,35 @@
       font-size:14px;
     }
   </style>
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -194,8 +223,11 @@
         <p><strong>🌍 One Africa. One Planet. One Future.</strong></p>
 
         <div style="margin-top:20px; text-align:center;">
-          <button id="joinBtn" class="btn">Click here to be part of the program</button>
-        </div>
+  <button id="joinBtn" class="btn" data-link="/join-us/">
+    Click here to be part of the program
+  </button>
+</div>
+
       </section>
     </main>
 
