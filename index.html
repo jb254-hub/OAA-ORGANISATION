@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>One Africa Alliance</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
       height: 100%;
@@ -20,13 +15,10 @@
       background-color: whitesmoke;
     }
 
-    /* Splash screen */
     #splash {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      top: 0; left: 0;
+      height: 100%; width: 100%;
       background-color: whitesmoke;
       display: flex;
       justify-content: center;
@@ -52,10 +44,9 @@
       object-fit: contain;
     }
 
-    /* Homepage styles (hidden initially) */
     #homepage {
       display: none;
-      background: #111;
+      background: whitesmoke;
       color: #fff;
       min-height: 100vh;
     }
@@ -66,7 +57,7 @@
       align-items: center;
       padding: 10px 15px;
       border-bottom: 1px solid #333;
-      background: #000;
+      background: whitesmoke;
     }
 
     .hamburger {
@@ -82,16 +73,15 @@
       display: block;
       width: 25px;
       height: 3px;
-      background: #fff;
+      background: orangered;
     }
 
     .sidebar {
       position: fixed;
-      top: 0;
-      left: -260px;
+      top: 0; left: -260px;
       width: 250px;
       height: 100%;
-      background-color: #1a1a1a;
+      background-color: whitesmoke;
       padding-top: 60px;
       transition: left 0.3s ease;
       z-index: 3;
@@ -107,7 +97,7 @@
       align-items: center;
       padding: 15px 20px;
       text-decoration: none;
-      color: #ddd;
+      color: black;
       font-size: 16px;
       transition: background 0.2s;
     }
@@ -181,12 +171,11 @@
 
     .blog-footer {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       font-size: 12px;
       margin-top: 10px;
       color: #aaa;
-      gap: 15px;
     }
 
     .btn-icon {
@@ -208,17 +197,16 @@
 </head>
 <body>
 
-<!-- Splash screen -->
 <div id="splash">
   <div class="logo-container">
     <img src="" alt="Logo" />
   </div>
 </div>
 
-<!-- Homepage (hidden initially) -->
 <div id="homepage">
   <nav class="sidebar" id="sidebar">
     <a href="/about-us/"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="/our-work/"><i class="fas fa-hands-helping"></i> Our Work</a> <!-- 👈 Added this line -->
     <a href="/contact-us/"><i class="fas fa-envelope"></i> Contact Us</a>
     <a href="/where-we-work/"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
     <a href="/join-us/"><i class="fas fa-users"></i> Join Us</a>
@@ -227,27 +215,24 @@
 
   <header>
     <button class="hamburger" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
-    <button class="btn-action" onclick="window.open(applyLink, '_blank')">JOIN US</button>
-    <button class="btn-action" onclick="window.open(donateLink, '_blank')">DONATE</button>
+    <button class="btn-action" onclick="window.open('/join-us/', '_blank')">JOIN US</button>
+    <button class="btn-action" onclick="window.open('/donate/', '_blank')">DONATE</button>
   </header>
 
   <main id="blogs"></main>
 </div>
 
 <script>
-  // 1. Splash screen logic
+  // Splash screen timeout
   setTimeout(() => {
     document.getElementById('splash').style.display = 'none';
     document.getElementById('homepage').style.display = 'block';
   }, 3000);
 
-  // 2. Sidebar logic
+  // Sidebar toggle
   const sidebar = document.getElementById("sidebar");
-
   function toggleSidebar() {
     sidebar.classList.toggle("active");
   }
@@ -260,18 +245,14 @@
     }
   });
 
-  // 3. Blog rendering logic
-  const navLink = "nav.html";
-  const donateLink = "/donate/";
-  const applyLink = "/join-us/";
-
+  // Blogs (no date logic)
   const blogs = [
     {
       id: "1",
       title: "Join One Africa Alliance (OAA) Waste Connect Program",
-      description: "Details on sustainable waste management initiatives,community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa'ss waste challenges into opportunities.",
+      description: "Details on sustainable waste management initiatives, community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa's waste challenges into opportunities.",
       image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
-      createdAt:"2025-09-21T18:11:24",
+      postedText: "Posted Today at 10:30",
       link: "https://www.games.com"
     },
     {
@@ -279,7 +260,7 @@
       title: "The Commonwealth Scholarship Commission (CSC) Scholarships 2026 and 2027",
       description: "Scholarships designed to help candidates from small island developing states pursue master’s degrees in the UK.",
       image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
-      createdAt: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(),
+      postedText: "Published Monday, September 15",
       link: "https://example.com/article-2"
     },
     {
@@ -287,33 +268,10 @@
       title: "Youth Innovation Grants in Africa 2025",
       description: "Funding opportunities for African youth-led startups driving community change.",
       image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
-      createdAt: new Date(Date.now() - 40 * 24 * 60 * 60 * 1000).toISOString(),
+      postedText: "Announced August 1, 2025",
       link: "https://example.com/article-3"
     }
   ];
-
-  function formatTime(dateISO) {
-    const now = new Date();
-    const posted = new Date(dateISO);
-    const diff = now - posted;
-    const minutes = Math.floor(diff / 60000);
-    const hours = Math.floor(diff / 3600000);
-    const days = Math.floor(diff / 86400000);
-    const options = { hour: '2-digit', minute: '2-digit' };
-
-    if (days === 0) {
-      if (hours > 0) return `${hours}h ago`;
-      if (minutes > 0) return `${minutes}m ago`;
-      return "just now";
-    } else if (days === 1) {
-      return `Yesterday at ${posted.toLocaleTimeString([], options)}`;
-    } else if (days < 7) {
-      return `${posted.toLocaleDateString([], { weekday: 'long' })} at ${posted.toLocaleTimeString([], options)}`;
-    } else {
-      return posted.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' }) +
-             " at " + posted.toLocaleTimeString([], options);
-    }
-  }
 
   function renderBlogs() {
     const container = document.getElementById("blogs");
@@ -327,7 +285,7 @@
           <h2>${blog.title}</h2>
           <p onclick="window.open('${blog.link}', '_blank')">${blog.description}</p>
           <div class="blog-footer">
-            <span id="time-${blog.id}">${formatTime(blog.createdAt)}</span>
+            <span>${blog.postedText}</span>
             <button class="btn-icon" onclick="sharePost('${blog.title}', '${blog.link}')">
               <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/>
@@ -349,12 +307,6 @@
       });
     }
   }
-
-  setInterval(() => {
-    blogs.forEach(blog => {
-      document.getElementById("time-" + blog.id).innerText = formatTime(blog.createdAt);
-    });
-  }, 60000);
 
   renderBlogs();
 </script>
