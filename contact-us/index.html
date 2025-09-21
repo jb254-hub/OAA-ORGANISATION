@@ -179,6 +179,22 @@
         item.parentElement.classList.toggle("active");
       });
     });
+
+    document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    // F12 or Ctrl+Shift+I or Ctrl+U
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      alert("Action disabled");
+    }
+  });
   </script>
 
 </body>
