@@ -202,6 +202,23 @@
   <footer>
     <p>© 2025 One Africa Alliance | Building Unity, Peace & Prosperity</p>
   </footer>
+  <script>
+    document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    // F12 or Ctrl+Shift+I or Ctrl+U
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      alert("Action disabled");
+    }
+  });
+  </script>
 
 </body>
 </html>
