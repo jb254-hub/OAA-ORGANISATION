@@ -1,0 +1,107 @@
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    section.join-us {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      padding: 40px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    section.join-us h2 {
+      font-size: 2rem;
+      color: orangered; /* green-700 */
+      margin-bottom: 30px;
+    }
+
+    form#joinForm {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    form#joinForm input[type="text"],
+    form#joinForm select {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #ddd;
+      font-size: 1rem;
+      outline-offset: 2px;
+      transition: border-color 0.25s ease;
+    }
+
+    form#joinForm input[type="text"]:focus,
+    form#joinForm select:focus {
+      border-color: #16a34a; /* green-600 */
+      outline: none;
+      box-shadow: 0 0 6px #a5d6a7;
+    }
+
+    form#joinForm select {
+      cursor: pointer;
+      appearance: none;
+      background: white url('data:image/svg+xml;utf8,<svg fill="%2315803d" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
+      background-size: 16px 16px;
+      padding-right: 44px;
+    }
+
+    form#joinForm button[type="submit"] {
+      padding: 14px 0;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, orangered, orangered);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, opacity 0.2s ease;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.5);
+      user-select: none;
+    }
+
+    form#joinForm button[type="submit"]:hover,
+    form#joinForm button[type="submit"]:focus {
+      background: linear-gradient(90deg, #15803d, #16a34a);
+      opacity: 0.9;
+      outline: none;
+    }
+
+    /* Responsive text and spacing */
+    @media (max-width: 400px) {
+      section.join-us {
+        padding: 30px 20px;
+      }
+      section.join-us h2 {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+      }
+      form#joinForm input[type="text"],
+      form#joinForm select {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+      }
+      form#joinForm button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+    }
