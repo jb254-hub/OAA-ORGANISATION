@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact & Support - One Africa Alliance</title>
-  <!-- Font Awesome for real icons -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,16 +39,39 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-    .email-contact a {
-      display: inline-block;
-      font-size: 1.2em;
+    .email-contact p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    .email-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+    .email-list li {
+      margin: 10px 0;
+    }
+    .email-list a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1em;
       color: #2a9d8f;
       font-weight: bold;
       text-decoration: none;
-      margin-top: 10px;
       transition: color 0.3s;
     }
-    .email-contact a:hover { color: #e76f51; }
+    .email-list a i {
+      margin-right: 8px;
+      color: #2a9d8f;
+    }
+    .email-list a:hover {
+      color: #e76f51;
+    }
+    .email-list a:hover i {
+      color: #e76f51;
+    }
 
     /* Offices */
     .offices {
@@ -113,7 +136,8 @@
       font-size: 0.95em;
     }
   </style>
-  <!-- ✅ Google Analytics (with tracking enhancements) -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -133,7 +157,7 @@
       }
     });
 
-    // Track scroll depth (25%, 50%, 75%, 100%)
+    // Scroll depth tracking
     window.addEventListener("scroll", function() {
       let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
       if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
@@ -156,22 +180,33 @@
     <h2>Get in Touch</h2>
     <div class="email-contact">
       <p>We’d love to hear from you. Send us an email directly:</p>
-      <a href="mailto:info@oneafricaalliance.org"><i class="fas fa-envelope"></i> info@oneafricaalliance.org</a>
-      
-      <a href="mailto:admin@oneafricaalliance.org"><i class="fas fa-envelope"></i> admin@oneafricaalliance.org</a>
-      
-      <a href="mailto:contact@oneafricaalliance.org"><i class="fas fa-envelope"></i> contact@oneafricaalliance.org</a>
+      <ul class="email-list">
+        <li>
+          <a href="mailto:info@oneafricaalliance.org">
+            <i class="fas fa-envelope"></i> info@oneafricaalliance.org
+          </a>
+        </li>
+        <li>
+          <a href="mailto:admin@oneafricaalliance.org">
+            <i class="fas fa-envelope"></i> admin@oneafricaalliance.org
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contact@oneafricaalliance.org">
+            <i class="fas fa-envelope"></i> contact@oneafricaalliance.org
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
-
 
   <!-- Social Media -->
   <section>
     <h2>Connect With Us</h2>
     <div class="socials">
-      <a href="https:www.facebook.com/profile.php?id=61581128135367" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61581128135367" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       <a href="https://x.com/1africaalliance" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https:instagram.com/one_africa_alliance" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://instagram.com/one_africa_alliance" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
@@ -203,7 +238,7 @@
     <p>© 2025 One Africa Alliance | Contact & Support</p>
   </footer>
 
-  <!-- FAQ Toggle Script -->
+  <!-- FAQ Toggle Script & Disable Context Menu -->
   <script>
     const faqItems = document.querySelectorAll(".faq-item h3");
     faqItems.forEach(item => {
@@ -212,21 +247,21 @@
       });
     });
 
+    // Disable right-click and dev tools
     document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    // F12 or Ctrl+Shift+I or Ctrl+U
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && e.key === "I") ||
-      (e.ctrlKey && e.key === "U")
-    ) {
       e.preventDefault();
-      alert("Action disabled");
-    }
-  });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+        alert("Action disabled");
+      }
+    });
   </script>
 
 </body>
