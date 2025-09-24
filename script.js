@@ -1,4 +1,3 @@
-
   // Splash screen timeout
   setTimeout(() => {
     document.getElementById('splash').style.display = 'none';
@@ -19,7 +18,7 @@
     }
   });
 
-  // Blogs (no date logic)
+  // Blogs
   const blogs = [
     {
       id: "1",
@@ -31,7 +30,7 @@
     },
     {
       id: "2",
-      title: "One Africa Alliance (OAA) Job Opportunities :Let Us Join Hands To Build Africa.",
+      title: "One Africa Alliance (OAA) Job Opportunities: Let Us Join Hands To Build Africa.",
       description: "Explore current opportunities to work with One Africa Alliance to help shape Africa.",
       image: "https://th.bing.com/th/id/OIP.RLqb_yIMiGP9Z2Vidg0IKAHaGW?w=201&h=180&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3",
       postedText: "Published Wednesday, September 24",
@@ -39,7 +38,7 @@
     },
     {
       id: "3",
-      title: "One Africa Alliance Youth Empowerment Program.",
+      title: "One Africa Alliance Youth Empowerment Program",
       description: "Details on programs to help empower youths in Africa with everything that might be needed to help shape the next Generation.",
       image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758660831/1758620489882_zinhdn.jpg",
       postedText: "Posted Wednesday, September 24",
@@ -84,12 +83,12 @@
 
   renderBlogs();
 
+  // Security shortcuts disabled
   document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
   });
 
   document.addEventListener('keydown', function (e) {
-    // F12 or Ctrl+Shift+I or Ctrl+U
     if (
       e.key === "F12" ||
       (e.ctrlKey && e.shiftKey && e.key === "I") ||
@@ -98,4 +97,29 @@
       e.preventDefault();
       alert("Action disabled");
     }
+  });
+
+  // Google Analytics
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LMNE15KDLR');
+
+  document.addEventListener("click", function(e) {
+    let target = e.target.closest("a");
+    if (target && target.hostname !== location.hostname) {
+      gtag("event", "click", {
+        "event_category": "outbound",
+        "event_label": target.href,
+        "transport_type": "beacon"
+      });
+    }
+  });
+
+  window.addEventListener("scroll", function() {
+    let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+    if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+    if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+    if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+    if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
   });
