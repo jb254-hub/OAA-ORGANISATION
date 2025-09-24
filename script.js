@@ -25,8 +25,8 @@
       id: "1",
       title: "Join One Africa Alliance (OAA) Waste Connect Program",
       description: "Details on sustainable waste management initiatives, community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa's waste challenges into opportunities.",
-      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
-      postedText: "Posted Sunday, September 21",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758660892/1758620699286_2_u3zjl9.jpg",
+      postedText: "Posted Wednesday, September 24",
       link: "/waste-connect/"
     },
     {
@@ -34,15 +34,15 @@
       title: "One Africa Alliance (OAA) Job Opportunities :Let Us Join Hands To Build Africa.",
       description: "Explore current opportunities to work with One Africa Alliance to help shape Africa.",
       image: "https://th.bing.com/th/id/OIP.RLqb_yIMiGP9Z2Vidg0IKAHaGW?w=201&h=180&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3",
-      postedText: "Published Sunday, September 21",
+      postedText: "Published Wednesday, September 24",
       link: "/job-opportunity/"
     },
     {
       id: "3",
       title: "One Africa Alliance Youth Empowerment Program.",
       description: "Details on programs to help empower youths in Africa with everything that might be needed to help shape the next Generation.",
-      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
-      postedText: "Posted Sunday, September 21",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758660831/1758620489882_zinhdn.jpg",
+      postedText: "Posted Wednesday, September 24",
       link: "youth-empowerment"
     }
   ];
