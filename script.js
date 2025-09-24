@@ -25,7 +25,7 @@
       id: "1",
       title: "Join One Africa Alliance (OAA) Waste Connect Program",
       description: "Details on sustainable waste management initiatives, community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa's waste challenges into opportunities.",
-      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758660892/1758620699286_2_u3zjl9.jpg",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758703548/IMG-20250921-WA0005_bfujb8.jpg",
       postedText: "Posted Wednesday, September 24",
       link: "/waste-connect/"
     },
