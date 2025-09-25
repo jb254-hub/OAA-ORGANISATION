@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One Africa Alliance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+
+<div id="splash">
+  <div class="logo-container">
+    <img src="https://res.cloudinary.com/devwniw2h/image/upload/v1758702430/IMG-20250920-WA0000_wvihzh.jpg" alt="Logo" />
+  </div>
+</div>
+
+<div id="homepage">
+  <nav class="sidebar" id="sidebar">
+    <a href="/about-us/"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="/our-work/"><i class="fas fa-hands-helping"></i> Our Work</a> <!-- 👈 Added this line -->
+    <a href="/contact-us/"><i class="fas fa-envelope"></i> Contact Us</a>
+    <a href="/where-we-work/"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
+    <a href="/join-us/"><i class="fas fa-users"></i> Join Us</a>
+    <a href="/application-portal/"><i class="fas fa-briefcase"></i> Job Application</a>
+  </nav>
+
+  <header>
+    <button class="hamburger" onclick="toggleSidebar()">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="btn-action" onclick="window.open('/join-us/', '_blank')">JOIN US</button>
+    <button class="btn-action" onclick="window.open('/donate/', '_blank')">DONATE</button>
+  </header>
+
+  <main id="blogs"></main>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us - One Africa Association</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+
+<section class="join-us">
+  <h2>Join Us</h2>
+
+  <form id="joinForm" action="https://formspree.io/f/mzzanvqy" method="POST">
+    
+    <!-- Full Name -->
+    <input type="text" name="fullname" placeholder="Full Name" required />
+    
+    <!-- Email or Phone -->
+    <input type="text" name="contact" placeholder="Email or Phone Number" required />
+    
+    <!-- Role Selection -->
+    <select name="role" required>
+      <option value="" disabled selected>Joining as?</option>
+      <option value="Beneficiary">Beneficiary</option>
+      <option value="Member">Member</option>
+      <option value="Donor">Donor</option>
+      <option value="NGO">NGO</option>
+      <option value="Government">Government</option>
+      <option value="Group">Group</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <!-- Submit -->
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

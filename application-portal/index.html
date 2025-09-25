@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application Form - One Africa Association</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+
+<section class="application-form">
+  <h2>Application Form</h2>
+  <p>Fill in your details to apply and be part of the movement.</p>
+
+  <form id="applicationForm" action="https://formspree.io/f/mzzanvqy" method="POST">
+    <!-- Full Name -->
+    <input type="text" name="fullname" placeholder="Full Name" required />
+
+    <!-- Country of Residence -->
+    <input type="text" name="country" placeholder="Country of Residence" required />
+
+    <!-- Mobile Number / Email -->
+    <input type="text" name="contact" placeholder="Mobile Number or Email" required />
+
+    <!-- Role Description -->
+    <textarea name="roleDescription" placeholder="Describe the role you best suit and can do perfectly" required></textarea>
+
+    <!-- Submit -->
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

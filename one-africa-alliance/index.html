@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Africa Alliance</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #333;
+      background: #000;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 4px 0;
+    }
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-action {
+      background: #e53935;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .blog {
+      background: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+    .blog:hover {
+      transform: translateY(-5px);
+    }
+    .blog img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .blog-content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog h2 {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+    .blog p {
+      font-size: 14px;
+      color: #ccc;
+      cursor: pointer;
+      flex-grow: 1;
+    }
+    .blog-footer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 10px;
+      color: #aaa;
+      gap: 15px;
+    }
+    .btn-icon {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+    }
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="hamburger" onclick="window.open(navLink, '_blank')">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="btn-action" onclick="window.open(applyLink, '_blank')">APPLY</button>
+  <button class="btn-action" onclick="window.open(donateLink, '_blank')">DONATE</button>
+</header>
+
+<main id="blogs"></main>
+
+<script>
+  const navLink = "nav.html";        // replace with your nav link
+  const donateLink = "https://example.com/donate";  // replace with your donate link
+  const applyLink = "https://example.com/apply";    // replace with your apply link
+
+  const blogs = [
+    {
+      id: "1",
+      title: "International Education Grants 2025: Driving Academic Growth and Inclusion",
+      description: "Details about grant opportunities, eligibility, and how these grants support academic inclusion across Africa.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt:"2025-09-19T18:30:00",  // 2 hours ago
+      link: "nav.html"
+    },
+    {
+      id: "2",
+      title: "The Commonwealth Scholarship Commission (CSC) Scholarships 2026 and 2027",
+      description: "Scholarships designed to help candidates from small island developing states pursue master’s degrees in the UK.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(), // yesterday
+      link: "https://example.com/article-2"
+    },
+
+    {
+      id: "2",
+      title: "The Commonwealth Scholarship Commission (CSC) Scholarships 2026 and 2027",
+      description: "Scholarships designed to help candidates from small island developing states pursue master’s degrees in the UK.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(), // yesterday
+      link: "https://example.com/article-2"
+    },
+
+    {
+      id: "2",
+      title: "The Commonwealth Scholarship Commission (CSC) Scholarships 2026 and 2027",
+      description: "Scholarships designed to help candidates from small island developing states pursue master’s degrees in the UK.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt:"2025-09-18T14:30:00",  // current time (right now)
+      link: "https://example.com/article-2"
+    },
+
+    {
+      id: "3",
+      title: "Youth Innovation Grants in Africa 2025",
+      description: "Funding opportunities for African youth-led startups driving community change.",
+      image: "https://www.bing.com/th/id/OIP.4DlgfVmJuC6qnuI0I-Z_bQHaE8?w=256&h=211",
+      createdAt: new Date(Date.now() - 40 * 24 * 60 * 60 * 1000).toISOString(), // 40 days ago
+      link: "https://example.com/article-3"
+    }
+
+    
+  ];
+
+  function formatTime(dateISO) {
+    const now = new Date();
+    const posted = new Date(dateISO);
+    const diff = now - posted;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+    const options = { hour: '2-digit', minute: '2-digit' };
+
+    if (days === 0) {
+      if (hours > 0) return `${hours}h ago`;
+      if (minutes > 0) return `${minutes}m ago`;
+      return "just now";
+    } else if (days === 1) {
+      return `Yesterday at ${posted.toLocaleTimeString([], options)}`;
+    } else if (days < 7) {
+      return `${posted.toLocaleDateString([], { weekday: 'long' })} at ${posted.toLocaleTimeString([], options)}`;
+    } else {
+      return posted.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' }) +
+             " at " + posted.toLocaleTimeString([], options);
+    }
+  }
+
+  function renderBlogs() {
+    const container = document.getElementById("blogs");
+    container.innerHTML = "";
+    blogs.forEach(blog => {
+      const article = document.createElement("div");
+      article.className = "blog";
+      article.innerHTML = `
+        <img src="${blog.image}" alt="${blog.title}" onclick="window.open('${blog.link}', '_blank')">
+        <div class="blog-content">
+          <h2>${blog.title}</h2>
+          <p onclick="window.open('${blog.link}', '_blank')">${blog.description}</p>
+          <div class="blog-footer">
+            <span id="time-${blog.id}">${formatTime(blog.createdAt)}</span>
+            <button class="btn-icon" onclick="sharePost('${blog.title}', '${blog.link}')">
+              <svg fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/>
+              </svg> Share
+            </button>
+          </div>
+        </div>
+      `;
+      container.appendChild(article);
+    });
+  }
+
+  function sharePost(title, link) {
+    if (navigator.share) {
+      navigator.share({ title, url: link })
+        .catch(err => console.log("Share failed:", err));
+    } else {
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
+  }
+
+  // update time every minute
+  setInterval(() => {
+    blogs.forEach(blog => {
+      document.getElementById("time-" + blog.id).innerText = formatTime(blog.createdAt);
+    });
+  }, 60000);
+
+  renderBlogs();
+</script>
+
+</body>
+</html>
