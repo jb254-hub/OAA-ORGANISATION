@@ -70,14 +70,6 @@
       link: "/education-access-fund/"
     },
     {
-      id: "8",
-      title: "One Africa Alliance (OAA) Africa's Got Talent .",
-      description: "A platform to discover and elevate Africa’s top talents in arts, sports, innovation, and more.",
-      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929468/unnamed_6_hg2dc9.png",
-      postedText: "Published Friday, September 26",
-      link: "/africa's-got-talent/"
-    },
-    {
       id: "1",
       title: "Join One Africa Alliance (OAA) Waste Connect Program",
       description: "Details on sustainable waste management initiatives, community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa's waste challenges into opportunities.",
