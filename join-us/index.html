@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Join Us - One Africa Association</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   
   <!-- ✅ Google Analytics (with tracking enhancements) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
@@ -52,7 +52,6 @@
     <!-- Role Selection -->
     <select name="role" required>
       <option value="" disabled selected>Joining as?</option>
-      <option value="Beneficiary">Beneficiary</option>
       <option value="Member">Member</option>
       <option value="Donor">Donor</option>
       <option value="NGO">NGO</option>
@@ -61,11 +60,25 @@
       <option value="Other">Other</option>
     </select>
 
+    <!-- Joining Program -->
+    <select name="program" required>
+      <option value="" disabled selected>Which program?</option>
+      <option value="Waste Connect">Waste Connect</option>
+      <option value="Youth Empowerment">Youth Empowerment</option>
+      <option value="Enviromental Conservation">Enviromental Conservation</option>
+      <option value="People Living With Disabilities">People Living with Disabilities</option>
+      <option value="Widows Support Network">Widows Support Network</option>
+      <option value="Elder Care & Support Program">Elder Care & Support Program</option>
+      <option value="Education Access Fund">Education Access Fund</option>
+      <option value="Mental Wellness & Guidance">Mental Wellness & Guidance</option>
+      <option value="Africa's Got Talent">Africa's Got Talent</option>
+      <option value="Others">Others</option>
+    </select>
+
     <!-- Submit -->
     <button type="submit">Submit</button>
   </form>
 </section>
-
 
 <script src="script.js"></script>
 </body>
