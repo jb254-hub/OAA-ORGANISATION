@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One Africa Alliance - Africa's Got Talent</title>
+  <meta name="description" content="Showcasing and empowering the diverse talents of Africa through One Africa Alliance’s Africa’s Got Talent program."/>
+
+        <link rel="stylesheet" href="styles.css" />
+    <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+  <div class="container" role="main" aria-label="One Africa Alliance Africa's Got Talent">
+    <header>
+      <div class="site-title">
+        <h1>One Africa Alliance - Africa’s Got Talent</h1>
+        <p>Celebrating and Empowering Africa’s Unique and Diverse Talents</p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <p>Africa is a land brimming with creativity, culture, and extraordinary talent. From music and dance to art, comedy, and innovation, the continent’s talent is vibrant and inspiring.</p>
+        
+        <p>Our <strong>Africa’s Got Talent</strong> program is dedicated to discovering, nurturing, and showcasing exceptional talent from every corner of Africa — giving artists, performers, and creators the platform they deserve to shine on a global stage.</p>
+
+        <h2>Why Africa’s Got Talent Matters</h2>
+        <p>By celebrating African talent, we:</p>
+        <ul>
+          <li>Amplify voices that represent the rich diversity of the continent.</li>
+          <li>Create opportunities for young and emerging artists.</li>
+          <li>Foster pride in African heritage and innovation.</li>
+          <li>Encourage cultural exchange and collaboration.</li>
+        </ul>
+
+        <h2>Our Key Program Elements</h2>
+
+        <div class="programs">
+          <div class="program-item" tabindex="0" aria-label="Talent Discovery & Auditions">
+            <h4>Talent Discovery & Auditions</h4>
+            <p>Conducting nationwide auditions to find unique performers across genres and disciplines.</p>
+          </div>
+          <div class="program-item" tabindex="0" aria-label="Mentorship & Training">
+            <h4>Mentorship & Training</h4>
+            <p>Connecting talents with expert mentors and offering workshops to hone skills.</p>
+          </div>
+          <div class="program-item" tabindex="0" aria-label="Showcase Events & Competitions">
+            <h4>Showcase Events & Competitions</h4>
+            <p>Hosting live and virtual events where talents compete, collaborate, and captivate audiences.</p>
+          </div>
+          <div class="program-item" tabindex="0" aria-label="Media Exposure & Partnerships">
+            <h4>Media Exposure & Partnerships</h4>
+            <p>Partnering with media outlets to broadcast and promote African talent worldwide.</p>
+          </div>
+          <div class="program-item" tabindex="0" aria-label="Community Engagement & Support">
+            <h4>Community Engagement & Support</h4>
+            <p>Involving local communities to celebrate talent and encourage participation.</p>
+          </div>
+        </div>
+
+        <h2>Get Involved</h2>
+        <ul>
+          <li><strong>Performers & Artists:</strong> Register for auditions and show your talent!</li>
+          <li><strong>Volunteers & Mentors:</strong> Support our program by guiding and encouraging talents.</li>
+          <li><strong>Sponsors & Partners:</strong> Help us provide platforms and resources for talents to flourish.</li>
+          <li><strong>Audience & Fans:</strong> Attend events, vote for your favorites, and spread the word.</li>
+        </ul>
+
+        <p><strong>Let’s celebrate Africa’s boundless talent — together, we amplify voices that inspire change.</strong></p>
+
+        <div style="text-align: center;">
+          <a href="https://oneafricaalliance.org/africas-got-talent" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Join Africa's Got Talent program">
+            Join Africa's Got Talent Now
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> One Africa Alliance — Africa’s Got Talent Program</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
