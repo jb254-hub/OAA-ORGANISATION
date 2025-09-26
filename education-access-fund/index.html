@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One Africa Alliance Education Access Fund</title>
+  <meta name="description" content="Empowering African youth through accessible, quality education and scholarships."/>
+
+  <link rel="stylesheet" href="styles.css" />
+    <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+  <div class="container" role="main" aria-label="One Africa Alliance Education Access Fund">
+    <header>
+      <div class="site-title">
+        <h1>One Africa Alliance Education Access Fund</h1>
+        <p>Empowering Africa’s Youth Through Quality and Accessible Education</p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <p>Education is the foundation for a brighter future, unlocking opportunities and empowering individuals to transform their communities. However, many young people across Africa face barriers such as poverty, lack of resources, and limited access to schools.</p>
+
+        <p>The One Africa Alliance Education Access Fund is committed to breaking down these barriers by providing scholarships, resources, and support that enable every child and youth to pursue quality education and lifelong learning.</p>
+
+        <h2>Why Education Access is Critical</h2>
+        <p>Accessible education is vital for personal growth, economic development, and social progress. Investing in education creates resilient communities and fuels innovation and leadership across Africa.</p>
+
+        <h2>Our Focus Areas</h2>
+
+        <h3>1. Scholarships & Financial Support</h3>
+        <ul>
+          <li>Offering scholarships for primary, secondary, and tertiary education.</li>
+          <li>Providing school supplies, uniforms, and learning materials.</li>
+          <li>Supporting fees and transportation costs for disadvantaged students.</li>
+        </ul>
+
+        <h3>2. Infrastructure & Technology</h3>
+        <ul>
+          <li>Building and renovating schools in underserved areas.</li>
+          <li>Providing access to digital learning tools and internet connectivity.</li>
+          <li>Training teachers on modern, inclusive teaching methods.</li>
+        </ul>
+
+        <h3>3. Inclusive Education</h3>
+        <ul>
+          <li>Supporting children with disabilities to access tailored educational resources.</li>
+          <li>Promoting gender equality and removing barriers for girls’ education.</li>
+          <li>Encouraging community awareness on the importance of education for all.</li>
+        </ul>
+
+        <h3>4. Youth Empowerment & Leadership</h3>
+        <ul>
+          <li>Providing mentorship programs to nurture leadership skills.</li>
+          <li>Encouraging extracurricular activities that foster creativity and critical thinking.</li>
+          <li>Supporting vocational training and entrepreneurship initiatives.</li>
+        </ul>
+
+        <h2>Our Key Programs</h2>
+        <div class="programs">
+          <div class="program-item">
+            <h4>Scholarship Grants</h4>
+            <p class="muted">Financial aid to cover tuition and essential school expenses for vulnerable students.</p>
+          </div>
+          <div class="program-item">
+            <h4>School Infrastructure Projects</h4>
+            <p class="muted">Building and upgrading classrooms, libraries, and technology centers.</p>
+          </div>
+          <div class="program-item">
+            <h4>Digital Learning Initiative</h4>
+            <p class="muted">Providing laptops, tablets, and internet access to schools and students.</p>
+          </div>
+          <div class="program-item">
+            <h4>Inclusive Education Support</h4>
+            <p class="muted">Resources and advocacy for learners with special needs.</p>
+          </div>
+          <div class="program-item">
+            <h4>Youth Leadership & Mentorship</h4>
+            <p class="muted">Programs to build confidence, skills, and community engagement among youth.</p>
+          </div>
+        </div>
+
+        <h2>How You Can Support Education Access</h2>
+        <ul>
+          <li><strong>Donors and Sponsors:</strong> Fund scholarships and school projects.</li>
+          <li><strong>Volunteers and Educators:</strong> Mentor students and support teaching efforts.</li>
+          <li><strong>Community Leaders:</strong> Promote education and advocate for policy improvements.</li>
+          <li><strong>Businesses and Tech Partners:</strong> Provide equipment, training, and internships.</li>
+          <li><strong>Parents and Guardians:</strong> Encourage children’s school attendance and learning.</li>
+        </ul>
+
+        <h2>Our Vision</h2>
+        <ul>
+          <li>An Africa where every child has access to quality education regardless of background.</li>
+          <li>Communities empowered through knowledge, innovation, and leadership.</li>
+          <li>A future where youth drive positive change across the continent.</li>
+          <li>Education systems that are inclusive, sustainable, and future-ready.</li>
+        </ul>
+
+        <p><strong>📚 Opening Doors to Opportunity, One Learner at a Time.</strong></p>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <button id="joinBtn" class="btn" data-link="https://oneafricaalliance.org/join-education-access">
+            Join the Education Access Fund
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> One Africa Alliance Education Access Fund</div>
+      <div>Committed to unlocking the power of education for Africa’s youth</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
