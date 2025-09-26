@@ -20,11 +20,68 @@
 
   // Blogs
   const blogs = [
+    
+    {
+      id: "4",
+      title: "One Africa Alliance (OAA) People Living With Disabilities .",
+      description: "Promoting inclusion, accessibility, and equal opportunities for people living with disabilities across Africa.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929634/unnamed_2_c9qj6u.png",
+      postedText: "Published Saturday, September 27",
+      link: "/people-living-with-disabilities/"
+    },
+    {
+      id: "9",
+      title: "One Africa Alliance (OAA) Enviromental Conservation Program .",
+      description: "Driving sustainable initiatives to preserve natural resources and combat climate change across Africa.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929660/unnamed_1_qabot1.png",
+      postedText: "Published Saturday, September 27",
+      link: "/enviromental-conservation/"
+    },
+    {
+      id: "10",
+      title: "One Africa Alliance (OAA) Widow Support Care Network.",
+      description: "Providing care, resources, and empowerment to widows for stronger, resilient communities across Africa.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929690/unnamed_qknszy.png",
+      postedText: "Published Saturday, September 27",
+      link: "/widows-support-network/"
+    },
+    {
+      id: "5",
+      title: "One Africa Alliance (OAA) Elderly Care & Support Program .",
+      description: "Providing care, support, and dignity to the elderly through community-driven initiatives across Africa.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929593/unnamed_3_lrb8zv.png",
+      postedText: "Published Saturday, September 27",
+      link: "/elder-care-support-program/"
+    },
+    {
+      id: "6",
+      title: "One Africa Alliance (OAA) Mental Wellness And Guidance Program .",
+      description: "Promoting mental health awareness, counseling, and emotional support for individuals across Africa.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929527/unnamed_4_a6hlxy.png",
+      postedText: "Published Saturday, September 27",
+      link: "/mental-wellness-guidance/"
+    },
+    {
+      id: "7",
+      title: "One Africa Alliance (OAA) Education Access Funds Program .",
+      description: "Support for students across Africa to access quality education through funding and resources.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929494/unnamed_5_ihxsjw.png",
+      postedText: "Published Friday, September 26",
+      link: "/education-access-fund/"
+    },
+    {
+      id: "8",
+      title: "One Africa Alliance (OAA) Africa's Got Talent .",
+      description: "A platform to discover and elevate Africa’s top talents in arts, sports, innovation, and more.",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929468/unnamed_6_hg2dc9.png",
+      postedText: "Published Friday, September 26",
+      link: "/africa's-got-talent/"
+    },
     {
       id: "1",
       title: "Join One Africa Alliance (OAA) Waste Connect Program",
       description: "Details on sustainable waste management initiatives, community solutions and how waste connect program aims to connect waste groups and individuals to help turn Africa's waste challenges into opportunities.",
-      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758703548/IMG-20250921-WA0005_bfujb8.jpg",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929320/unnamed_10_ovkycr.png",
       postedText: "Posted Wednesday, September 24",
       link: "/waste-connect/"
     },
@@ -32,7 +89,7 @@
       id: "2",
       title: "One Africa Alliance (OAA) Job Opportunities: Let Us Join Hands To Build Africa.",
       description: "Explore current opportunities to work with One Africa Alliance to help shape Africa.",
-      image: "https://th.bing.com/th/id/OIP.RLqb_yIMiGP9Z2Vidg0IKAHaGW?w=201&h=180&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929372/unnamed_9_ovmfnf.png",
       postedText: "Published Wednesday, September 24",
       link: "/job-opportunity/"
     },
@@ -40,7 +97,7 @@
       id: "3",
       title: "One Africa Alliance Youth Empowerment Program",
       description: "Details on programs to help empower youths in Africa with everything that might be needed to help shape the next Generation.",
-      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758660831/1758620489882_zinhdn.jpg",
+      image: "https://res.cloudinary.com/devwniw2h/image/upload/v1758929415/unnamed_8_otq3yy.png",
       postedText: "Posted Wednesday, September 24",
       link: "youth-empowerment"
     }
