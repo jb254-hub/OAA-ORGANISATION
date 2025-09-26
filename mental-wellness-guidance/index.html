@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One Africa Alliance Mental Wellness & Guidance</title>
+  <meta name="description" content="Supporting mental health and emotional well-being across African communities."/>
+
+      <link rel="stylesheet" href="styles.css" />
+    <!-- ✅ Google Analytics (with tracking enhancements) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMNE15KDLR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMNE15KDLR');
+
+    // Track outbound link clicks
+    document.addEventListener("click", function(e) {
+      let target = e.target.closest("a");
+      if (target && target.hostname !== location.hostname) {
+        gtag("event", "click", {
+          "event_category": "outbound",
+          "event_label": target.href,
+          "transport_type": "beacon"
+        });
+      }
+    });
+
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    window.addEventListener("scroll", function() {
+      let scrollDepth = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+      if (scrollDepth >= 25 && !window.scroll25) { gtag("event", "scroll_depth", {percent: 25}); window.scroll25 = true; }
+      if (scrollDepth >= 50 && !window.scroll50) { gtag("event", "scroll_depth", {percent: 50}); window.scroll50 = true; }
+      if (scrollDepth >= 75 && !window.scroll75) { gtag("event", "scroll_depth", {percent: 75}); window.scroll75 = true; }
+      if (scrollDepth >= 100 && !window.scroll100) { gtag("event", "scroll_depth", {percent: 100}); window.scroll100 = true; }
+    });
+  </script>
+</head>
+<body>
+  <div class="container" role="main" aria-label="One Africa Alliance Mental Wellness and Guidance">
+    <header>
+      <div class="site-title">
+        <h1>One Africa Alliance Mental Wellness & Guidance</h1>
+        <p>Supporting Emotional Well-being and Resilience Across African Communities</p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <p>Mental health is essential to our overall well-being, yet it often remains misunderstood or overlooked. Across Africa, stigma, limited resources, and lack of access to care can prevent individuals from receiving the support they need.</p>
+
+        <p>At One Africa Alliance, our Mental Wellness & Guidance program aims to foster understanding, provide compassionate care, and build resilient communities through education, counseling, and peer support.</p>
+
+        <h2>Why Mental Wellness Matters</h2>
+        <p>Mental health affects how we think, feel, and act. It influences how we handle stress, relate to others, and make choices. Supporting mental wellness is crucial for individuals, families, and society to thrive.</p>
+
+        <h2>Our Core Focus Areas</h2>
+
+        <h3>1. Awareness & Education</h3>
+        <ul>
+          <li>Running community workshops and campaigns to reduce stigma.</li>
+          <li>Sharing culturally sensitive information on mental health.</li>
+          <li>Training community leaders to recognize and respond to mental health challenges.</li>
+        </ul>
+
+        <h3>2. Counseling & Support Services</h3>
+        <ul>
+          <li>Providing confidential counseling through trained professionals.</li>
+          <li>Establishing peer support groups and helplines.</li>
+          <li>Offering crisis intervention and referral services.</li>
+        </ul>
+
+        <h3>3. Youth Mental Health</h3>
+        <ul>
+          <li>Creating safe spaces for young people to express and process emotions.</li>
+          <li>Integrating mental wellness into school curricula and extracurricular programs.</li>
+          <li>Empowering youth with coping skills and resilience training.</li>
+        </ul>
+
+        <h3>4. Community Healing & Resilience</h3>
+        <ul>
+          <li>Facilitating community dialogues and trauma recovery programs.</li>
+          <li>Supporting families affected by conflict, loss, or displacement.</li>
+          <li>Encouraging practices that promote emotional balance and well-being.</li>
+        </ul>
+
+        <h2>Our Key Programs</h2>
+        <div class="programs">
+          <div class="program-item">
+            <h4>Community Mental Health Workshops</h4>
+            <p class="muted">Engaging local leaders and residents in open discussions to build awareness.</p>
+          </div>
+          <div class="program-item">
+            <h4>Confidential Counseling Services</h4>
+            <p class="muted">Providing empathetic and professional mental health support.</p>
+          </div>
+          <div class="program-item">
+            <h4>Peer Support Networks</h4>
+            <p class="muted">Connecting individuals for shared healing and encouragement.</p>
+          </div>
+          <div class="program-item">
+            <h4>Youth Wellness Initiatives</h4>
+            <p class="muted">Programs tailored to youth mental health needs and empowerment.</p>
+          </div>
+          <div class="program-item">
+            <h4>Trauma Recovery & Resilience Building</h4>
+            <p class="muted">Helping communities heal and strengthen after hardship.</p>
+          </div>
+        </div>
+
+        <h2>How You Can Help Promote Mental Wellness</h2>
+        <ul>
+          <li><strong>Volunteers & Counselors:</strong> Offer your time and skills to support counseling and awareness efforts.</li>
+          <li><strong>Community Advocates:</strong> Help break stigma and promote mental health in your area.</li>
+          <li><strong>Donors & Partners:</strong> Fund programs and expand access to care.</li>
+          <li><strong>Educators & Schools:</strong> Integrate mental wellness into curricula and support services.</li>
+          <li><strong>Families & Individuals:</strong> Foster open conversations about mental health and seek help when needed.</li>
+        </ul>
+
+        <h2>Our Vision</h2>
+        <ul>
+          <li>Africa where mental health is openly discussed, understood, and supported.</li>
+          <li>Communities equipped with the knowledge and tools to care for emotional well-being.</li>
+          <li>Individuals empowered to seek help and build resilience.</li>
+          <li>A continent where no one faces mental health challenges alone.</li>
+        </ul>
+
+        <p><strong>💙 Fostering Hope, Healing, and Strength Together.</strong></p>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <button id="joinBtn" class="btn" data-link="https://oneafricaalliance.org/join-mental-wellness">
+            Join the Mental Wellness & Guidance Program
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> One Africa Alliance Mental Wellness & Guidance</div>
+      <div>Committed to nurturing mental health and resilience across Africa</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
