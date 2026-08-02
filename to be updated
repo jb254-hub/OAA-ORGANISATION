@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="One Africa Alliance - Uniting Africa for sustainable development through community empowerment, social support, environmental stewardship, and inclusive growth.">
+  <meta name="keywords" content="Africa, NGO, sustainable development, empowerment, community support, environmental conservation">
+  <meta name="author" content="One Africa Alliance">
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="One Africa Alliance | Uniting Africa for Sustainable Development">
+  <meta property="og:description" content="Accelerating sustainable development across Africa through community empowerment, social support, and economic opportunity.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1523805009345-8c3c5f9da6e1?w=1200&h=630&fit=crop">
+  <meta property="og:url" content="#">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="One Africa Alliance">
+  <meta name="twitter:description" content="Building a united, prosperous, sustainable Africa.">
+  <title>One Africa Alliance | Uniting Africa for Sustainable Development</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & VARIABLES (Orange Theme) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-orange: #E67E22;
+      --primary-orange-dark: #D35400;
+      --primary-orange-light: #F39C12;
+      --gold-accent: #F1C40F;
+      --white: #FFFFFF;
+      --soft-gray: #F8F9FC;
+      --light-gray: #F1F5F9;
+      --dark-text: #1E293B;
+      --medium-text: #475569;
+      --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 25px 40px -12px rgba(0,0,0,0.15);
+      --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--dark-text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .nav-links a, .btn {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-dark) 100%);
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 18px rgba(230,126,34,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 25px rgba(230,126,34,0.4);
+      background: linear-gradient(135deg, var(--primary-orange-dark) 0%, #a04000 100%);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .btn-outline:hover {
+      background: var(--primary-orange);
+      border-color: var(--primary-orange);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    .btn-readmore {
+      background: transparent;
+      border: 2px solid var(--primary-orange);
+      color: var(--primary-orange);
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    .btn-readmore:hover {
+      background: var(--primary-orange);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Sticky Navbar - White Background */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      z-index: 1000;
+      padding: 0.8rem 0;
+      transition: 0.3s;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .logo-img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--dark-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links a i {
+      font-size: 1.1rem;
+      color: var(--primary-orange);
+    }
+    .nav-links a:hover { color: var(--primary-orange); transform: translateY(-2px); }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--dark-text);
+      cursor: pointer;
+    }
+    /* Mobile Navigation - White background, well shaped */
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        width: 280px;
+        height: calc(100vh - 75px);
+        background: var(--white);
+        box-shadow: 5px 0 25px rgba(0,0,0,0.1);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 2rem 1.8rem;
+        transition: 0.3s ease;
+        gap: 1.8rem;
+        z-index: 999;
+        border-radius: 0 20px 20px 0;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 0.5rem 0;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Hero Section - Image background, dark overlay */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1523805009345-8c3c5f9da6e1?w=1600&q=80') no-repeat center center/cover;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 { font-size: 3.8rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+    .hero-tagline { font-size: 1.3rem; font-weight: 500; letter-spacing: -0.2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.3);}
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+    /* About Cards */
+    .about-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .about-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+    .about-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .about-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .about-card-content {
+      padding: 1.8rem;
+    }
+    .about-card-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--primary-orange);
+    }
+    .about-card-content p {
+      color: var(--medium-text);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Cards & Grids */
+    .stat-grid, .program-grid, .why-grid, .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card-icon {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .card-icon:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+    .card-icon i { color: var(--primary-orange); }
+    
+    /* Program Cards */
+    .program-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .program-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .program-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .program-card:hover img { transform: scale(1.05); }
+    .program-body { padding: 1.5rem; }
+    .program-body i { color: var(--primary-orange); }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.5s, filter 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.08); filter: brightness(0.95); }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .lightbox.active { visibility: visible; opacity: 1; }
+    .lightbox img { max-width: 90%; max-height: 85%; border-radius: 20px; }
+
+    /* Testimonial Slider */
+    .testimonial-slider {
+      position: relative;
+      max-width: 850px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 32px;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-card {
+      min-width: 100%;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 32px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .slider-dots { display: flex; justify-content: center; gap: 14px; margin-top: 2rem; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #cbd5e1; cursor: pointer; transition: 0.2s; }
+    .dot.active { background: var(--primary-orange); width: 32px; border-radius: 20px; }
+
+    /* Partners Grid */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+    .partner-card {
+      background: white;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 28px;
+      transition: all 0.25s;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+    .partner-card:hover { transform: scale(1.05); background: #fff5e6; box-shadow: var(--shadow-md); }
+    .partner-card img { max-width: 120px; height: auto; }
+
+    /* Footer - White Background, Well Organized */
+    footer {
+      background: var(--white);
+      color: var(--dark-text);
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 1rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary-orange);
+      font-weight: 600;
+    }
+    .footer-col p, .footer-col a {
+      color: var(--medium-text);
+      text-decoration: none;
+      line-height: 1.8;
+      transition: 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--primary-orange);
+      transform: translateX(3px);
+      display: inline-block;
+    }
+    .social-icons {
+      margin-top: 0.5rem;
+    }
+    .social-icons a {
+      color: var(--medium-text);
+      margin-right: 1.2rem;
+      font-size: 1.5rem;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      color: var(--primary-orange);
+      transform: translateY(-3px);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      color: var(--medium-text);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.4rem; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 3rem 0; }
+      .footer-grid {
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .social-icons a {
+        margin: 0 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky Navigation with White Background and Icons -->
+<nav class="navbar">
+  <div class="nav-container">
+    <img src="https://via.placeholder.com/180x60?text=One+Africa+Alliance" alt="One Africa Alliance Logo" class="logo-img" id="siteLogo">
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" id="navAboutUs"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="#" id="navWhereWeWork"><i class="fas fa-map-marker-alt"></i> Where We Work</a>
+      <a href="#" id="navOurWork"><i class="fas fa-briefcase"></i> Our Work</a>
+      <a href="#" id="navContactUs"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content reveal">
+      <h1>One Africa Alliance</h1>
+      <p class="hero-tagline">Uniting Africa, Transforming Tomorrow</p>
+      <p style="max-width:600px; margin:1.5rem 0 0; font-size:1.05rem;">Accelerating sustainable development through community empowerment, social support, and inclusive growth across Africa.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" id="joinUsBtn"><i class="fas fa-user-plus"></i> Join Us</button>
+        <button class="btn-primary" id="donateHeroBtn"><i class="fas fa-heart"></i> Donate Now</button>
+        <button class="btn-outline" id="jobsHeroBtn"><i class="fas fa-briefcase"></i> Apply for Jobs</button>
+        <button class="btn-outline" id="partnerHeroBtn"><i class="fas fa-handshake"></i> Become a Partner</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section: Story, Mission, Vision with images and Read More -->
+  <section id="aboutSection">
+    <div class="container reveal">
+      <h2 style="font-size:2.6rem; text-align:center;">About <span style="color:var(--primary-orange);">Our Alliance</span></h2>
+      <div class="about-cards">
+        <div class="about-card">
+          <img src="https://images.unsplash.com/photo-1523805009345-8c3c5f9da6e1?w=600&q=80" alt="Our Story" loading="lazy">
+          <div class="about-card-content">
+            <h3><i class="fas fa-book-open"></i> Our Story</h3>
+            <p>Founded in 2015, One Africa Alliance has grown into a pan-African movement, operating in 22 nations. We bridge the gap between grassroots communities and global opportunities, fostering unity and sustainable development across the continent.</p>
+            <button class="btn-readmore" id="readMoreStory"><i class="fas fa-arrow-right"></i> Read More</button>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Our Mission" loading="lazy">
+          <div class="about-card-content">
+            <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+            <p>Uniting Africa and accelerating sustainable development through community empowerment, social support, environmental stewardship, economic opportunity, and inclusive growth.</p>
+            <button class="btn-readmore" id="readMoreMission"><i class="fas fa-arrow-right"></i> Read More</button>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" alt="Our Vision" loading="lazy">
+          <div class="about-card-content">
+            <h3><i class="fas fa-eye"></i> Our Vision</h3>
+            <p>A united, empowered, prosperous, and sustainable Africa where every individual has access to opportunities and support systems that improve quality of life.</p>
+            <button class="btn-readmore" id="readMoreVision"><i class="fas fa-arrow-right"></i> Read More</button>
+          </div>
+        </div>
+      </div>
+      <!-- Core Values -->
+      <div style="margin-top: 3rem;">
+        <h3 style="text-align:center; font-size:1.8rem;">Core Values</h3>
+        <div class="why-grid" style="margin-top:1.5rem;">
+          <div class="card-icon"><i class="fas fa-hand-holding-heart fa-2x"></i><h4>Integrity</h4></div>
+          <div class="card-icon"><i class="fas fa-globe-africa fa-2x"></i><h4>Unity</h4></div>
+          <div class="card-icon"><i class="fas fa-leaf fa-2x"></i><h4>Sustainability</h4></div>
+          <div class="card-icon"><i class="fas fa-users fa-2x"></i><h4>Inclusivity</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Statistics -->
+  <section style="background:var(--soft-gray);">
+    <div class="container reveal">
+      <h2 style="text-align:center;">Our Impact in Numbers</h2>
+      <div class="stat-grid" id="statsContainer">
+        <div class="card-icon"><i class="fas fa-city fa-2x"></i><h3><span class="counter" data-target="342">0</span>+</h3><p>Communities Reached</p></div>
+        <div class="card-icon"><i class="fas fa-graduation-cap fa-2x"></i><h3><span class="counter" data-target="12500">0</span>+</h3><p>Youth Empowered</p></div>
+        <div class="card-icon"><i class="fas fa-briefcase fa-2x"></i><h3><span class="counter" data-target="8400">0</span>+</h3><p>Jobs Facilitated</p></div>
+        <div class="card-icon"><i class="fas fa-tree fa-2x"></i><h3><span class="counter" data-target="187000">0</span>+</h3><p>Trees Planted</p></div>
+        <div class="card-icon"><i class="fas fa-smile fa-2x"></i><h3><span class="counter" data-target="45800">0</span>+</h3><p>Beneficiaries Supported</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs">
+    <div class="container reveal">
+      <h2 style="text-align:center;">Flagship <span style="color:var(--primary-orange);">Programs</span></h2>
+      <div class="program-grid" id="programGrid"></div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section style="background:white;">
+    <div class="container reveal">
+      <h2 style="text-align:center;">Why Choose One Africa Alliance</h2>
+      <div class="why-grid">
+        <div class="card-icon"><i class="fas fa-chart-line fa-2x"></i><h3>Transparency</h3><p>100% fund accountability</p></div>
+        <div class="card-icon"><i class="fas fa-hand-peace fa-2x"></i><h3>Community Impact</h3><p>Local-led initiatives</p></div>
+        <div class="card-icon"><i class="fas fa-recycle fa-2x"></i><h3>Sustainability</h3><p>Eco-conscious models</p></div>
+        <div class="card-icon"><i class="fas fa-wheelchair fa-2x"></i><h3>Inclusivity</h3><p>No one left behind</p></div>
+        <div class="card-icon"><i class="fas fa-lightbulb fa-2x"></i><h3>Innovation</h3><p>Tech-driven solutions</p></div>
+        <div class="card-icon"><i class="fas fa-balance-scale fa-2x"></i><h3>Accountability</h3><p>Results-driven</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" style="background:var(--soft-gray);">
+    <div class="container reveal">
+      <h2 style="text-align:center;">Moments of Change</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section><div class="container reveal"><h2 style="text-align:center;">Global Partners</h2><div class="partner-grid" id="partnerGrid"></div></div></section>
+
+  <!-- Testimonials Slider -->
+  <section id="testimonials" style="background: linear-gradient(145deg, #f8faff, #ffffff);"><div class="container reveal"><h2 style="text-align:center;">Voices of Impact</h2><div class="testimonial-slider"><div class="testimonial-track" id="testimonialTrack"></div><div class="slider-dots" id="dotsContainer"></div></div></div></section>
+
+  <!-- Volunteer, Donate, Jobs -->
+  <section><div class="container reveal"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;"><div class="card-icon"><i class="fas fa-hands-helping fa-3x"></i><h3>Volunteer With Us</h3><p>Build skills, create change, empower communities.</p><button class="btn-primary" id="volunteerBtn">Join Network</button></div><div class="card-icon"><i class="fas fa-donate fa-3x"></i><h3>Make a Donation</h3><div style="background:#e2e8f0; border-radius:30px; margin:1rem 0; height:8px;"><div style="width:74%; background:var(--primary-orange); height:8px; border-radius:30px;"></div></div><p>Goal $2.5M for rural schools — 74% funded</p><button class="btn-primary" id="donateSectionBtn">Donate Now</button></div><div class="card-icon"><i class="fas fa-bullhorn fa-3x"></i><h3>Job Opportunities</h3><p>Join our mission: multiple roles open</p><button class="btn-primary" id="jobApplyBtn">Apply Now</button></div></div></div></section>
+
+  <!-- News & Updates -->
+  <section style="background:var(--soft-gray);"><div class="container reveal"><h2 style="text-align:center;">News & Updates</h2><div class="news-grid" id="newsGrid"></div></div></section>
+</main>
+
+<!-- Footer - White background, well organized -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>One Africa Alliance</h4>
+        <p>Uniting Africa, empowering futures. <br>Building sustainable communities across the continent.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#" id="footerAboutUs">About Us</a><br>
+        <a href="#" id="footerWhereWeWork">Where We Work</a><br>
+        <a href="#" id="footerOurWork">Our Work</a><br>
+        <a href="#" id="footerContactUs">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-map-marker-alt" style="color:var(--primary-orange); width: 24px;"></i> Nairobi, Kenya</p>
+        <p><i class="fas fa-phone-alt" style="color:var(--primary-orange); width: 24px;"></i> +254 700 111 222</p>
+        <p><i class="fas fa-envelope" style="color:var(--primary-orange); width: 24px;"></i> info@oneafricaalliance.org</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" class="social-link" data-social="facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" data-social="twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" data-social="linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link" data-social="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © One Africa Alliance. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightboxModal" class="lightbox"><img id="lightboxImg" alt="Expanded"><span style="position:absolute; top:25px; right:35px; color:white; font-size:2.5rem; cursor:pointer;" id="closeLightbox">&times;</span></div>
+
+<script>
+  // ---------- CONFIGURABLE LINKS ----------
+  const navLinksConfig = {
+    aboutUs: "#", whereWeWork: "#", ourWork: "#", contactUs: "#"
+  };
+  const readMoreLinks = { story: "#", mission: "#", vision: "#" };
+  const heroButtons = { joinUs: "#", donate: "#", jobs: "#", partner: "#" };
+  const volunteerLink = "#", donateLink = "#", jobApplicationLink = "#";
+  const socialLinks = {
+    facebook: "https://www.facebook.com/oneafricaalliance",
+    twitter: "https://twitter.com/oneafricaalliance",
+    linkedin: "https://www.linkedin.com/company/oneafricaalliance",
+    instagram: "https://www.instagram.com/oneafricaalliance"
+  };
+
+  function openLink(url) { if(url && url !== "#") window.open(url, '_blank'); else alert("Demo placeholder – replace with actual URL."); }
+
+  // Nav & Footer links
+  document.getElementById("navAboutUs")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.aboutUs); });
+  document.getElementById("navWhereWeWork")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.whereWeWork); });
+  document.getElementById("navOurWork")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.ourWork); });
+  document.getElementById("navContactUs")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.contactUs); });
+  document.getElementById("footerAboutUs")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.aboutUs); });
+  document.getElementById("footerWhereWeWork")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.whereWeWork); });
+  document.getElementById("footerOurWork")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.ourWork); });
+  document.getElementById("footerContactUs")?.addEventListener("click", (e) => { e.preventDefault(); openLink(navLinksConfig.contactUs); });
+  document.getElementById("readMoreStory")?.addEventListener("click", () => openLink(readMoreLinks.story));
+  document.getElementById("readMoreMission")?.addEventListener("click", () => openLink(readMoreLinks.mission));
+  document.getElementById("readMoreVision")?.addEventListener("click", () => openLink(readMoreLinks.vision));
+  document.getElementById("joinUsBtn")?.addEventListener("click",()=>openLink(heroButtons.joinUs));
+  document.getElementById("donateHeroBtn")?.addEventListener("click",()=>openLink(heroButtons.donate));
+  document.getElementById("jobsHeroBtn")?.addEventListener("click",()=>openLink(heroButtons.jobs));
+  document.getElementById("partnerHeroBtn")?.addEventListener("click",()=>openLink(heroButtons.partner));
+  document.getElementById("donateSectionBtn")?.addEventListener("click",()=>openLink(donateLink));
+  document.getElementById("jobApplyBtn")?.addEventListener("click",()=>openLink(jobApplicationLink));
+  document.getElementById("volunteerBtn")?.addEventListener("click",()=>openLink(volunteerLink));
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const social = link.getAttribute('data-social');
+      if (socialLinks[social]) window.open(socialLinks[social], '_blank');
+      else alert("Social link not configured.");
+    });
+  });
+
+  // Programs Data
+  const programLinks = { disability: "#", environment: "#", widows: "#", elderly: "#", mental: "#", waste: "#", jobs: "#", youth: "#" };
+  const programsData = [
+    { title:"People With Disability Support", icon:"fas fa-wheelchair", desc:"Assistive tech, advocacy & inclusion.", img:"https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80", linkKey:"disability" },
+    { title:"Environmental Conservation", icon:"fas fa-leaf", desc:"Reforestation, clean energy, resilience.", img:"https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80", linkKey:"environment" },
+    { title:"Widows Support Care Network", icon:"fas fa-female", desc:"Economic empowerment & psychosocial aid.", img:"https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&q=80", linkKey:"widows" },
+    { title:"Elderly Care & Support", icon:"fas fa-hands", desc:"Healthcare, dignity & social inclusion.", img:"https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=600&q=80", linkKey:"elderly" },
+    { title:"Mental Wellness Guidance", icon:"fas fa-brain", desc:"Counseling & mental health first aid.", img:"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80", linkKey:"mental" },
+    { title:"Waste Connect Program", icon:"fas fa-recycle", desc:"Circular economy & waste management.", img:"https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80", linkKey:"waste" },
+    { title:"Job Opportunities Program", icon:"fas fa-briefcase", desc:"Skills training & job placement.", img:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80", linkKey:"jobs" },
+    { title:"Youth Empowerment Program", icon:"fas fa-graduation-cap", desc:"Leadership, tech & entrepreneurship.", img:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80", linkKey:"youth" }
+  ];
+  const programGrid = document.getElementById("programGrid");
+  if(programGrid) {
+    programsData.forEach(p => {
+      const card = document.createElement("div"); card.className = "program-card";
+      card.innerHTML = `<img src="${p.img}" loading="lazy" alt="${p.title}"><div class="program-body"><i class="${p.icon}" style="font-size:2rem;"></i><h3>${p.title}</h3><p>${p.desc}</p><button class="btn-primary learn-more" data-key="${p.linkKey}" style="padding:0.6rem 1.5rem;">Learn More →</button></div>`;
+      programGrid.appendChild(card);
+    });
+    document.querySelectorAll(".learn-more").forEach(btn => btn.addEventListener("click", (e) => { const key = btn.dataset.key; openLink(programLinks[key] || "#"); }));
+  }
+
+  // Gallery
+  const galleryImgs = [
+    "https://images.unsplash.com/photo-1523805009345-8c3c5f9da6e1?w=600&q=80","https://images.unsplash.com/photo-1484406566174-3da6a566d0c7?w=600&q=80","https://images.unsplash.com/photo-1496200186974-4293800e2c20?w=600&q=80","https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&q=80","https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80","https://images.unsplash.com/photo-1523805009345-8c3c5f9da6e1?w=600&q=80","https://images.unsplash.com/photo-1573164574230-db1d5e960238?w=600&q=80","https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80","https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?w=600&q=80","https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&q=80","https://images.unsplash.com/photo-1611510338559-2f463338092d?w=600&q=80","https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80"
+  ];
+  const galleryDiv = document.getElementById("galleryGrid");
+  galleryImgs.forEach(src => { const item = document.createElement("div"); item.className="gallery-item"; item.innerHTML=`<img src="${src}" loading="lazy" alt="Gallery">`; item.addEventListener("click",()=>{ document.getElementById("lightboxImg").src=src; document.getElementById("lightboxModal").classList.add("active"); }); galleryDiv.appendChild(item); });
+  document.getElementById("closeLightbox")?.addEventListener("click",()=>document.getElementById("lightboxModal").classList.remove("active"));
+  document.getElementById("lightboxModal")?.addEventListener("click",(e)=>{ if(e.target===document.getElementById("lightboxModal")) document.getElementById("lightboxModal").classList.remove("active"); });
+
+  // Partners
+  const partners = [
+    { name:"African Union", logo:"https://placehold.co/160x80/0B7B6B/white?text=AU", website:"#" },{ name:"UNDP Africa", logo:"https://placehold.co/160x80/0B7B6B/white?text=UNDP", website:"#" },{ name:"Green Earth Org", logo:"https://placehold.co/160x80/0B7B6B/white?text=GEO", website:"#" },{ name:"Women Deliver", logo:"https://placehold.co/160x80/0B7B6B/white?text=WD", website:"#" },{ name:"YouthLead", logo:"https://placehold.co/160x80/0B7B6B/white?text=YL", website:"#" },{ name:"AfDB", logo:"https://placehold.co/160x80/0B7B6B/white?text=AfDB", website:"#" },{ name:"UNICEF Africa", logo:"https://placehold.co/160x80/0B7B6B/white?text=UNICEF", website:"#" },{ name:"Global Fund", logo:"https://placehold.co/160x80/0B7B6B/white?text=GF", website:"#" }
+  ];
+  const partnerGrid = document.getElementById("partnerGrid");
+  partners.forEach(p=>{ const card=document.createElement("div"); card.className="partner-card"; card.innerHTML=`<img src="${p.logo}" alt="${p.name}"><p>${p.name}</p>`; card.addEventListener("click",()=>openLink(p.website)); partnerGrid.appendChild(card); });
+
+  // Testimonials
+  const testimonials = [
+    { name:"Amina K.", role:"Community Leader", text:"One Africa Alliance transformed our village with clean water and education projects.", img:"https://randomuser.me/api/portraits/women/68.jpg" },
+    { name:"John M.", role:"Youth Advocate", text:"Empowerment programs gave me skills to start my business and employ others.", img:"https://randomuser.me/api/portraits/men/32.jpg" },
+    { name:"Grace N.", role:"Widow Beneficiary", text:"The support network changed my life, gave me hope and financial independence.", img:"https://randomuser.me/api/portraits/women/44.jpg" },
+    { name:"David O.", role:"Environmental Officer", text:"Reforestation drive is impactful beyond measure — 187k trees planted!", img:"https://randomuser.me/api/portraits/men/55.jpg" },
+    { name:"Esther W.", role:"Volunteer", text:"Volunteering with OAA is fulfilling and purpose-driven. I've seen real change.", img:"https://randomuser.me/api/portraits/women/90.jpg" },
+    { name:"Michael A.", role:"Partner Director", text:"We've achieved scale thanks to their transparency and strategic execution.", img:"https://randomuser.me/api/portraits/men/22.jpg" }
+  ];
+  const track = document.getElementById("testimonialTrack");
+  testimonials.forEach(t=>{ const slide=document.createElement("div"); slide.className="testimonial-card"; slide.innerHTML=`<img src="${t.img}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:1rem;"><h3>${t.name}</h3><p style="color:var(--primary-orange);">${t.role}</p><p>"${t.text}"</p>`; track.appendChild(slide); });
+  const dotsContainer = document.getElementById("dotsContainer"); let currentSlide=0, slideInterval;
+  for(let i=0;i<testimonials.length;i++){ const dot=document.createElement("div"); dot.classList.add("dot"); dot.dataset.index=i; dot.addEventListener("click",()=>{ currentSlide=i; updateSlider(); resetInterval(); }); dotsContainer.appendChild(dot);}
+  function updateSlider(){ track.style.transform = `translateX(-${currentSlide*100}%)`; document.querySelectorAll(".dot").forEach((d,i)=>{ if(i===currentSlide) d.classList.add("active"); else d.classList.remove("active");}); }
+  function nextSlide(){ currentSlide = (currentSlide+1)%testimonials.length; updateSlider(); }
+  function resetInterval(){ if(slideInterval) clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 5000);}
+  updateSlider(); resetInterval();
+
+  // Counters
+  const counters = document.querySelectorAll('.counter'); let counted = false;
+  const statSectionObs = document.querySelector('#statsContainer')?.closest('section');
+  const counterObserver = new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting && !counted){ counted=true; counters.forEach(c=>{ const target = +c.dataset.target; let current=0; const step = target/70; const interval = setInterval(()=>{ current+=step; if(current>=target){ c.innerText = target; clearInterval(interval); }else c.innerText = Math.floor(current); }, 20); }); } }); },{ threshold:0.4 });
+  if(statSectionObs) counterObserver.observe(statSectionObs);
+
+  // Scroll Reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); }); },{ threshold:0.1 });
+  revealElements.forEach(el=>revealObserver.observe(el));
+
+  // Mobile menu
+  const hamburger = document.getElementById("hamburger"), navLinksDiv = document.getElementById("navLinks");
+  hamburger?.addEventListener("click",()=> navLinksDiv.classList.toggle("active"));
+  document.querySelectorAll(".nav-links a").forEach(link=> link.addEventListener("click",()=> navLinksDiv.classList.remove("active")));
+
+  // News Updates
+  const newsItems = [
+    { title:"New Disability Tech Lab", desc:"Launched in Accra, empowering 500+ individuals", img:"https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" },
+    { title:"Green Campaign 2025", desc:"100k trees planted across the Sahel region", img:"https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" },
+    { title:"Youth Summit Recap", desc:"Inspiring 2000 young leaders from 15 countries", img:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" }
+  ];
+  const newsGridDiv = document.getElementById("newsGrid");
+  newsItems.forEach(n=>{ const card=document.createElement("div"); card.className="program-card"; card.innerHTML=`<img src="${n.img}" loading="lazy" alt="${n.title}"><div class="program-body"><h3>${n.title}</h3><p>${n.desc}</p><i class="fas fa-calendar-alt"></i> March 2025</div>`; newsGridDiv.appendChild(card); });
+</script>
+</body>
+</html>
